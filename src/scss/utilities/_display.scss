@@ -1,0 +1,25 @@
+$zeph-display-values: (none, inline, inline-block, block, flex, inline-flex, grid, inline-grid);
+
+@mixin generate-display-classes($bp) {
+  @each $val in $zeph-display-values {
+    .#{$prefix}d#{"-#{$bp}-#{$val}"} {
+      display: #{$val} !important;
+    }
+  }
+}
+
+// Default (tanpa breakpoint)
+@each $val in $zeph-display-values {
+  .#{$prefix}d-#{$val} {
+    display: #{$val} !important;
+  }
+}
+
+// Responsive variants
+@each $breakpoint, $width in $zeph-breakpoints {
+  @if $breakpoint != 'xs' {
+    @include zeph-media-up($breakpoint) {
+      @include generate-display-classes($breakpoint);
+    }
+  }
+}

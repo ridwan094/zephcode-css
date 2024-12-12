@@ -1,0 +1,62 @@
+$zeph-color-vars: (
+  'primary': var(--zeph-primary),
+  'secondary': var(--zeph-secondary),
+  'success': var(--zeph-success),
+  'danger': var(--zeph-danger),
+  'warning': var(--zeph-warning),
+  'info': var(--zeph-info),
+  'gray-100': var(--zeph-gray-100),
+  'gray-200': var(--zeph-gray-200),
+  'gray-300': var(--zeph-gray-300),
+  'gray-400': var(--zeph-gray-400),
+  'gray-500': var(--zeph-gray-500),
+  'gray-600': var(--zeph-gray-600),
+  'gray-700': var(--zeph-gray-700),
+  'gray-800': var(--zeph-gray-800),
+  'gray-900': var(--zeph-gray-900)
+);
+
+// Text color
+@each $name, $value in $zeph-color-vars {
+  .#{$prefix}text-#{$name} {
+    color: #{$value} !important;
+  }
+
+  // Hover text color variant
+  .#{$prefix}hover-text-#{$name}:hover {
+    color: #{$value} !important;
+  }
+}
+
+// Background color
+@each $name, $value in $zeph-color-vars {
+  .#{$prefix}bg-#{$name} {
+    background-color: #{$value} !important;
+  }
+
+  // Hover background color variant
+  .#{$prefix}hover-bg-#{$name}:hover {
+    background-color: #{$value} !important;
+  }
+}
+
+// Border color
+@each $name, $value in $zeph-color-vars {
+  .#{$prefix}border-#{$name} {
+    border-color: #{$value} !important;
+  }
+}
+
+// Opacity utilities untuk background (0% sampai 100%)
+@for $i from 0 through 100 {
+  .#{$prefix}bg-opacity-#{$i} {
+    background-color: rgba(0,0,0,#{$i/100}) !important;
+  }
+}
+
+// Focus variant contoh (jarang dibuat di utilities warna, tapi kita contohkan):
+@each $name, $value in $zeph-color-vars {
+  .#{$prefix}focus-bg-#{$name}:focus {
+    background-color: #{$value} !important;
+  }
+}

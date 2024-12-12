@@ -1,0 +1,90 @@
+.#{$prefix}dropdown {
+    position: relative;
+    display: inline-block;
+
+    &-toggle {
+        cursor: pointer;
+    }
+
+    &-menu {
+        @extend %zeph-dropdown-base;
+
+        &.show {
+            display: block;
+        }
+
+        .#{$prefix}dropdown-item {
+            display: block;
+            width: 100%;
+            padding: 0.375rem 1rem;
+            clear: both;
+            font-weight: 400;
+            color: zeph-color('gray', '900');
+            text-align: inherit;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+            text-decoration: none;
+
+            &:hover,
+            &:focus {
+                background-color: zeph-color('gray', '100');
+                color: zeph-color('gray', '900');
+            }
+
+            &.active {
+                background-color: zeph-color('primary', 'light');
+                color: color-contrast(zeph-color('primary', 'light'));
+            }
+
+            &.disabled {
+                pointer-events: none;
+                opacity: 0.65;
+            }
+        }
+
+        .#{$prefix}dropdown-header {
+            display: block;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0;
+            font-size: 0.875rem;
+            color: zeph-color('gray', '600');
+            white-space: nowrap;
+        }
+
+        .#{$prefix}dropdown-divider {
+            height: 1px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+            background-color: zeph-color('gray', '200');
+        }
+    }
+
+    &-right .#{$prefix}dropdown-menu {
+        right: 0;
+        left: auto;
+    }
+
+    // Directional variations
+    &.dropup {
+        .#{$prefix}dropdown-menu {
+            top: auto;
+            bottom: 100%;
+        }
+    }
+
+    &.dropright {
+        .#{$prefix}dropdown-menu {
+            top: 0;
+            left: 100%;
+        }
+    }
+
+    &.dropleft {
+        .#{$prefix}dropdown-menu {
+            top: 0;
+            right: 100%;
+            left: auto;
+        }
+    }
+}

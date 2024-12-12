@@ -1,0 +1,83 @@
+.#{$prefix}pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: zeph-radius('md');
+
+    &-item {
+        &:first-child {
+            .#{$prefix}pagination-link {
+                border-top-left-radius: zeph-radius('md');
+                border-bottom-left-radius: zeph-radius('md');
+            }
+        }
+
+        &:last-child {
+            .#{$prefix}pagination-link {
+                border-top-right-radius: zeph-radius('md');
+                border-bottom-right-radius: zeph-radius('md');
+            }
+        }
+
+        &.active {
+            .#{$prefix}pagination-link {
+                z-index: 3;
+                color: white;
+                background-color: zeph-color('primary');
+                border-color: zeph-color('primary');
+            }
+        }
+
+        &.disabled {
+            .#{$prefix}pagination-link {
+                color: zeph-color('gray', '400');
+                pointer-events: none;
+                background-color: white;
+                border-color: zeph-color('gray', '300');
+            }
+        }
+    }
+
+    &-link {
+        position: relative;
+        display: block;
+        padding: 0.5rem 0.75rem;
+        margin-left: -1px;
+        line-height: 1.25;
+        color: zeph-color('primary');
+        background-color: white;
+        border: 1px solid zeph-color('gray', '300');
+        text-decoration: none;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            z-index: 2;
+            color: zeph-color('primary', 'dark');
+            background-color: zeph-color('gray', '100');
+            border-color: zeph-color('gray', '300');
+        }
+
+        &:focus {
+            z-index: 3;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(zeph-color('primary'), 0.25);
+        }
+    }
+
+    // Sizes
+    &-sm {
+        .#{$prefix}pagination-link {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+    }
+
+    &-lg {
+        .#{$prefix}pagination-link {
+            padding: 0.75rem 1.5rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+        }
+    }
+}

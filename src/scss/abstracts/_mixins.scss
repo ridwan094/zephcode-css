@@ -1,0 +1,126 @@
+// Breakpoint mixins
+@mixin zeph-media-up($breakpoint) {
+    @if map-has-key($zeph-breakpoints, $breakpoint) {
+        @media (min-width: map-get($zeph-breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+
+    @else {
+        @error "Unknown breakpoint: #{$breakpoint}.";
+    }
+}
+
+@mixin zeph-media-down($breakpoint) {
+    @if map-has-key($zeph-breakpoints, $breakpoint) {
+        @media (max-width: (map-get($zeph-breakpoints, $breakpoint) - 0.02)) {
+            @content;
+        }
+    }
+
+    @else {
+        @error 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+// Flexbox mixins
+@mixin zeph-flex($direction: row, $wrap: nowrap, $justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// Grid mixins
+@mixin zeph-make-container {
+    width: 100%;
+    padding-right: $zeph-grid-gutter * 0.5;
+    padding-left: $zeph-grid-gutter * 0.5;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin zeph-make-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -$zeph-grid-gutter * 0.5;
+    margin-left: -$zeph-grid-gutter * 0.5;
+}
+
+@mixin zeph-make-col($size, $columns: $zeph-grid-columns) {
+    flex: 0 0 percentage($size / $columns);
+    max-width: percentage($size / $columns);
+    padding-right: $zeph-grid-gutter * 0.5;
+    padding-left: $zeph-grid-gutter * 0.5;
+}
+
+// Typography mixins
+@mixin zeph-text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin zeph-font-size($size, $line-height: 1.5) {
+    font-size: $size;
+    line-height: $line-height;
+}
+
+// Transitions
+@mixin zeph-transition($property: all) {
+    transition: $property 0.3s ease-in-out;
+}
+
+// Box shadow
+@mixin zeph-shadow($key) {
+    box-shadow: zeph-shadow($key);
+}
+
+// Border radius
+@mixin zeph-rounded($key) {
+    border-radius: zeph-radius($key);
+}
+
+// Focus ring
+@mixin zeph-focus-ring($color: 'primary') {
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(zeph-color($color), 0.2);
+    }
+}
+
+// Button variants
+@mixin zeph-button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
+    color: color-contrast($background);
+    background-color: $background;
+    border-color: $border;
+
+    &:hover {
+        color: color-contrast($hover-background);
+        background-color: $hover-background;
+        border-color: $hover-border;
+    }
+
+    &:focus {
+        color: color-contrast($hover-background);
+        background-color: $hover-background;
+        border-color: $hover-border;
+        box-shadow: 0 0 0 0.2rem rgba($border, 0.5);
+    }
+
+    &:active {
+        color: color-contrast($active-background);
+        background-color: $active-background;
+        border-color: $active-border;
+    }
+}
+
+// Form control focus state
+@mixin zeph-from-control-focus($color: 'primary') {
+    &:focus {
+        border-color: zeph-color($color);
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(zeph-color($color), 0.25);
+    }
+}

@@ -1,0 +1,89 @@
+.#{$prefix}footer {
+    width: 100%;
+    background-color: zeph-color(gray, 100);
+    border-top: 1px solid zeph-color(gray, 200);
+    padding: $zeph-spacers(md);
+    text-align: center;
+    color: zeph-color(gray, 700);
+
+    a {
+        color: zeph-color(primary);
+        text-decoration: none;
+        margin: 0 $zeph-spacers(xs);
+
+        &:hover {
+            text-decoration: underline;
+            color: zeph-color(primary, dark);
+        }
+    }
+
+    &.fixed-bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: zeph-z('fixed');
+    }
+
+    &-dark {
+        background-color: zeph-color(gray, 900);
+        color: zeph-color(gray, 100);
+        border-top: 1px solid zeph-color(gray, 700);
+
+        a {
+            color: zeph-color('gray','100');
+
+            &:hover {
+                color: zeph-color('primary','light');
+            }
+        }
+    }
+
+    // Footer layout variants
+    &-links {
+        margin-bottom: $zeph-spacers(sm);
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        a {
+            margin: $zeph-spacers(xs);
+        }
+    }
+
+    &-credits {
+        font-size: 0.875rem;
+        color: zeph-color('gray','600');
+
+        &.text-muted {
+            color: zeph-color('gray','500');
+        }
+    }
+
+    &-social {
+        margin-top: $zeph-spacers(sm);
+
+        a {
+            margin: 0 $zeph-spacers(xs);
+            i {
+                font-size: 1.25rem;
+                vertical-align: middle;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    // Responsive: pada layar kecil, buat links dan sosial media stack vertical
+    @include zeph-media-down('sm') {
+        .#{$prefix}footer-links {
+            flex-direction: column;
+
+            a {
+                margin: $zeph-spacers(xs) 0;
+            }
+        }
+    }
+}

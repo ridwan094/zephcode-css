@@ -1,0 +1,57 @@
+.#{$prefix}badge {
+    @extend %zeph-badge-base;
+
+    &-primary {
+        background-color: zeph-color('primary', 'base');
+        color: color-contrast(zeph-color('primary', 'base'));
+    }
+
+    &-secondary {
+        background-color: zeph-color('secondary', 'base');
+        color: color-contrast(zeph-color('secondary', 'base'));
+    }
+
+    &-success {
+        background-color: zeph-color('success', 'base');
+        color: color-contrast(zeph-color('success', 'base'));
+    }
+
+    &-danger {
+        background-color: zeph-color('danger', 'base');
+        color: color-contrast(zeph-color('danger', 'base'));
+    }
+
+    &-warning {
+        background-color: zeph-color('warning', 'base');
+        color: color-contrast(zeph-color('warning', 'base'));
+    }
+
+    &-info {
+        background-color: zeph-color('info', 'base');
+        color: color-contrast(zeph-color('info', 'base'));
+    }
+
+    &-light {
+        background-color: zeph-color('gray', '100');
+        color: zeph-color('gray', '700');
+    }
+
+    &-dark {
+        background-color: zeph-color('gray', '800');
+        color: zeph-color('gray', '100');
+    }
+
+    // Pill style for rounded badges
+    &-pill {
+        border-radius: zeph-radius('full');
+    }
+
+    // Badges as links
+    a& {
+        text-decoration: none;
+
+        &:hover {
+            opacity: 0.85;
+        }
+    }
+}

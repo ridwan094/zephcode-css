@@ -1,0 +1,105 @@
+// Container utama: responsive max-width yang berubah sesuai breakpoint
+.#{$prefix}container {
+    // Dasar: lebar penuh, auto margin, padding horizontal
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $zeph-grid-gutter;
+    padding-left: $zeph-grid-gutter;
+
+    // Berubah max-width di tiap breakpoint
+    @include zeph-media-up('sm') {
+        max-width: 540px;
+    }
+    @include zeph-media-up('md') {
+        max-width: 720px;
+    }
+    @include zeph-media-up('lg') {
+        max-width: 960px;
+    }
+    @include zeph-media-up('xl') {
+        max-width: 1140px;
+    }
+    @include zeph-media-up('2xl') {
+        max-width: 1320px;
+    }
+}
+
+// Container fluid: selalu penuh, cocok untuk layout full-bleed
+.#{$prefix}container-fluid {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $zeph-grid-gutter;
+    padding-left: $zeph-grid-gutter;
+}
+
+// Container khusus breakpoint, misalnya hanya beri max-width pada md ke atas
+.#{$prefix}container-sm {
+    width: 100%;
+    margin: 0 auto;
+    padding-right: $zeph-grid-gutter;
+    padding-left: $zeph-grid-gutter;
+
+    @include zeph-media-up('sm') {
+        max-width: 540px;
+    }
+}
+
+.#{$prefix}container-md {
+    @extend .#{$prefix}container-sm;
+    @include zeph-media-up('md') {
+        max-width: 720px;
+    }
+}
+
+.#{$prefix}container-lg {
+    @extend .#{$prefix}container-md;
+    @include zeph-media-up('lg') {
+        max-width: 960px;
+    }
+}
+
+.#{$prefix}container-xl {
+    @extend .#{$prefix}container-lg;
+    @include zeph-media-up('xl') {
+        max-width: 1140px;
+    }
+}
+
+.#{$prefix}container-xxl {
+    @extend .#{$prefix}container-xl;
+    @include zeph-media-up('2xl') {
+        max-width: 1320px;
+    }
+}
+
+// Alignment container: memusatkan konten vertical/horizontal di viewport
+// Misalnya buat container yang tinggi minimal 100vh, konten di tengah
+.#{$prefix}container-center {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Theme variant: misal .zeph-container-dark
+.#{$prefix}container-dark {
+    background-color: zeph-color('gray','900');
+    color: zeph-color('gray','100');
+}
+
+// Container padding variants (extra utilities)
+@each $spacer, $value in $zeph-spacers {
+    .#{$prefix}container-p-#{$spacer} {
+        padding: $value !important;
+    }
+    .#{$prefix}container-px-#{$spacer} {
+        padding-left: $value !important;
+        padding-right: $value !important;
+    }
+    .#{$prefix}container-py-#{$spacer} {
+        padding-top: $value !important;
+        padding-bottom: $value !important;
+    }
+}

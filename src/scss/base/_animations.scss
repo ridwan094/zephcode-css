@@ -1,0 +1,132 @@
+// Fade
+@keyframes zephFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+// Slide down
+@keyframes zephSlideDown {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// Slide up
+@keyframes zephSlideUp {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// Scale
+@keyframes zephScale {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// Spinner
+@keyframes zephSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// Animation classes
+.zeph-fade {
+    animation: zephFade 0.3s ease-in-out;
+}
+
+.zeph-slide-down {
+    animation: zephSlideDown 0.3s ease-in-out;
+}
+
+.zeph-slide-up {
+    animation: zephSlideUp 0.3s ease-in-out;
+}
+
+.zeph-scale {
+    animation: zephScale 0.3s ease-in-out;
+}
+
+.zeph-spin {
+    animation: zephSpin 1s linear infinite;
+}
+
+// Animation durations
+.zeph-duration-fast {
+    animation-duration: 0.15s !important;
+}
+
+.zeph-duration-normal {
+    animation-duration: 0.3s !important;
+}
+
+.zeph-durarion-slow {
+    animation-duration: 0.5s !important;
+}
+
+// Animation timing functions
+.zeph-ease {
+    animation-timing-function: ease !important;
+}
+
+.zeph-ease-in {
+    animation-timing-function: ease-in !important;
+}
+
+.zeph-ease-out {
+    animation-timing-function: ease-out !important;
+}
+
+.zeph-ease-in-out {
+    animation-timing-function: ease-in-out !important;
+}
+
+// Animation delays
+.zeph-delay-100 {
+    animation-delay: 0.1s !important;
+}
+
+.zeph-delay-200 {
+    animation-delay: 0.2s !important;
+}
+
+.zeph-delay-300 {
+    animation-delay: 0.3s !important;
+}
+
+// Animation fill modes
+.zeph-fill-forwards {
+    animation-fill-mode: forwards !important;
+}
+
+.zeph-fill-backwards {
+    animation-fill-mode: backwards !important;
+}
+
+.zeph-fill-both {
+    animation-fill-mode: both !important;
+}

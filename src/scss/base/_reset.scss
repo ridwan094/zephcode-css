@@ -1,0 +1,148 @@
+// Reset default styles
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// HTML & body reset
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    margin: 0;
+    font-family: $zeph-font-family-sans;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: zeph-color('gray', '900');
+    text-align: left;
+    background-color: white;
+}
+
+// Typography reset
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+// Lists
+ol,
+ul {
+    padding-left: 2rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+    margin-bottom: 0;
+}
+
+// Links
+a {
+    color: zeph-color('primary');
+    text-decoration: none;
+    background-color: transparent;
+
+    &:hover {
+        color: zeph-color('primary', 'dark');
+        text-decoration: underline;
+    }
+}
+
+// Images
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+// Tables
+table {
+    border-collapse: collapse;
+}
+
+// Forms
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button,
+input {
+    overflow: visible;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+[role="button"] {
+    cursor: pointer;
+}
+
+// Remove button styles
+button {
+    border: none;
+    background: transparent;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+// Fieldset reset
+fieldset {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+// Address
+address {
+    margin-bottom: 1rem;
+    font-style: normal;
+    line-height: inherit;
+}
+
+// Pre, code
+pre,
+code {
+    font-family: $zeph-font-family-mono;
+    font-size: 1em;
+}
+
+pre {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+    -ms-overflow-style: scrollbar;
+}
+
+// HR
+hr {
+    margin: 1rem 0;
+    border: 0;
+    border-top: 1px solid zeph-color('gray', '200');
+}

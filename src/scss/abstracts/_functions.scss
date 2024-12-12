@@ -1,0 +1,79 @@
+// Get color from $zeph-colors map
+@function zeph-color($color-name, $variant: 'base') {
+    @if map-has-key($zeph-colors, $color-name ) {
+        $color: map-get($zeph-colors, $color-name);
+
+        @if type-of($color)=='map' {
+            @if map-has-key($color, $variant) {
+                @return map-get($color, $variant);
+            }
+
+            @error 'Invalid variant `#{$variant}` for color `#{$color-name}`.';
+        }
+
+        @return $color;
+
+    }
+
+    @error 'Invalid color name `#{$color-name}`.';
+}
+
+// Get spacing value
+@function zeph-spacing($key) {
+    @if map-has-key($zeph-spacers, $key) {
+        @return map-get($zeph-spacers, $key);
+    }
+
+    @error 'Invalid spacing key `#{$key}`.';
+}
+
+// Get breakpoint value
+@function zeph-breakpoint($key) {
+    @if map-has-key($zeph-breakpoints, $key) {
+        @return map-get($zeph-breakpoints, $key);
+    }
+
+    @error 'Invalid breakpoint key `#{$key}`.';
+}
+
+// Get z-index value
+@function zeph-z($key) {
+    @if map-has-key($zeph-z-index, $key) {
+        @return map-get($zeph-z-index, $key);
+    }
+
+    @error 'Invalid z-index key `#{$key}`.';
+}
+
+// Get shadow value
+@function zeph-shadow($key) {
+    @if map-has-key($zeph-shadows, $key) {
+        @return map-get($zeph-shadows, $key);
+    }
+
+    @error 'Invalid shadow key `#{$key}`.';
+}
+
+// Convert px to rem
+@function rem($size) {
+    $rem-size: $size / 16;
+    @return #{$rem-size}rem;
+}
+
+// Get transition value
+@function zeph-transition($key) {
+    @if map-has-key($zeph-transitions, $key) {
+        @return map-get($zeph-transitions, $key);
+    }
+
+    @error 'Invalid transition key `#{$key}`.';
+}
+
+// Get border-radius value
+@function zeph-radius($key) {
+    @if map-has-key($zeph-border-radius, $key) {
+        @return map-get($zeph-border-radius, $key);
+    }
+
+    @error 'Invalid border-radius key `#{$key}`.';
+}   

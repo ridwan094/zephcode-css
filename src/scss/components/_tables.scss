@@ -1,0 +1,117 @@
+.#{$prefix}table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: zeph-color('gray', '900');
+    vertical-align: top;
+    border-color: zeph-color('gray', '300');
+
+    // Reset default table styles
+    th {
+        font-weight: 600;
+    }
+
+    >thead {
+        vertical-align: bottom;
+    }
+
+    >tbody {
+        vertical-align: inherit;
+    }
+
+    td,
+    th {
+        padding: 0.75rem;
+        border-bottom: 1px solid zeph-color('gray', '200');
+    }
+
+    // Variants
+    &-bordered {
+        border: 1px solid zeph-color('gray', '200');
+
+        td,
+        th {
+            border: 1px solid zeph-color('gray', '200');
+        }
+    }
+
+    &-borderless {
+
+        td,
+        th {
+            border: 0;
+        }
+    }
+
+    &-striped {
+        >tbody>tr:nth-of-type(odd) {
+            background-color: rgba(zeph-color('gray', '100'), 0.5);
+        }
+    }
+
+    &-hover {
+        >tbody>tr:hover {
+            background-color: zeph-color('gray', '100');
+        }
+    }
+
+    // Sizes
+    &-sm {
+
+        td,
+        th {
+            padding: 0.3rem;
+        }
+    }
+
+    // Responsive
+    &-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+
+        @each $breakpoint in map-keys($zeph-breakpoints) {
+            $next: breakpoint-next($breakpoint, $zeph-breakpoints);
+
+            @include zeph-media-down($next) {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+
+                // Prevent double border
+                >.#{$prefix}table-bordered {
+                    border: 0;
+                }
+            }
+        }
+    }
+
+    // States
+    .table-active {
+        background-color: rgba(zeph-color('primary'), 0.075);
+    }
+
+    .table-success {
+        background-color: rgba(zeph-color('success'), 0.075);
+    }
+
+    .table-warning {
+        background-color: rgba(zeph-color('warning'), 0.075);
+    }
+
+    .table-danger {
+        background-color: rgba(zeph-color('danger'), 0.075);
+    }
+
+    // Alignments
+    .text-start {
+        text-align: left;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-end {
+        text-align: right;
+    }
+}

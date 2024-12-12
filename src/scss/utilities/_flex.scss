@@ -1,0 +1,70 @@
+// Flex direction
+$zeph-flex-directions: (row, row-reverse, column, column-reverse);
+// Flex wrap
+$zeph-flex-wraps: (wrap, nowrap, wrap-reverse);
+// Justify content
+$zeph-flex-justify: (start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly);
+// Align items
+$zeph-flex-align: (start: flex-start, end: flex-end, center: center, baseline: baseline, stretch: stretch);
+// Align content
+$zeph-flex-content: (start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, stretch: stretch);
+
+// Display flex
+.#{$prefix}flex {
+  display: flex !important;
+}
+
+@mixin generate-flex-utilities($bp) {
+  // Direction
+  @each $dir in $zeph-flex-directions {
+    .#{$prefix}flex#{"-#{$bp}-#{$dir}"} {
+      flex-direction: #{$dir} !important;
+    }
+  }
+
+  // Wrap
+  @each $wrap in $zeph-flex-wraps {
+    .#{$prefix}flex#{"-#{$bp}-#{$wrap}"} {
+      flex-wrap: #{$wrap} !important;
+    }
+  }
+
+  // Justify content
+  @each $name, $val in $zeph-flex-justify {
+    .#{$prefix}justify-content#{"-#{$bp}-#{$name}"} {
+      justify-content: #{$val} !important;
+    }
+  }
+
+  // Align items
+  @each $name, $val in $zeph-flex-align {
+    .#{$prefix}align-items#{"-#{$bp}-#{$name}"} {
+      align-items: #{$val} !important;
+    }
+  }
+
+  // Align content
+  @each $name, $val in $zeph-flex-content {
+    .#{$prefix}align-content#{"-#{$bp}-#{$name}"} {
+      align-content: #{$val} !important;
+    }
+  }
+
+  // Order
+  @for $i from 0 through 12 {
+    .#{$prefix}order#{"-#{$bp}-#{$i}"} {
+      order: $i !important;
+    }
+  }
+}
+
+// Default (no breakpoint)
+@include generate-flex-utilities('');
+
+@each $breakpoint, $width in $zeph-breakpoints {
+  @if $breakpoint != 'xs' {
+    @include zeph-media-up($breakpoint) {
+      @include generate-flex-utilities($breakpoint);
+    }
+  }
+}

@@ -1,0 +1,165 @@
+// Base button styles
+.#{$prefix}btn {
+    @extend %zeph-button-base;
+    cursor: pointer;
+
+    //Button variants
+    &-primary {
+        @include zeph-button-variant(zeph-color('primary'),
+            zeph-color('primary'),
+        );
+    }
+
+    &-secondary {
+        @include zeph-button-variant(zeph-color('secondary'),
+            zeph-color('secondary'),
+        );
+    }
+
+    &-success {
+        @include zeph-button-variant(zeph-color('success'),
+            zeph-color('success'),
+        );
+    }
+
+    &-danger {
+        @include zeph-button-variant(zeph-color('danger'),
+            zeph-color('danger'),
+        );
+    }
+
+    &-info {
+        @include zeph-button-variant(zeph-color('info'),
+            zeph-color('info'),
+        );
+    }
+
+    // Outline buttons
+    &-outline-primary {
+        @include zeph-button-outline-variant(zeph-color('primary'));
+    }
+
+    &-outline-secondary {
+        @include zeph-button-outline-variant(zeph-color('secondary'));
+    }
+
+    &-outline-success {
+        @include zeph-button-outline-variant(zeph-color('success'));
+    }
+
+    &-outline-danger {
+        @include zeph-button-outline-variant(zeph-color('danger'));
+    }
+
+    &-outline-warning {
+        @include zeph-button-outline-variant(zeph-color('warning'));
+    }
+
+    &-outline-info {
+        @include zeph-button-outline-variant(zeph-color('info'));
+    }
+
+    // Button sizes
+    &-sm {
+        padding: $zeph-btn-padding-y-sm $zeph-btn-padding-x-sm;
+        font-size: 0, 875rem;
+        line-height: 1.5;
+        border-radius: zeph-radius('sm');
+    }
+
+    &-lg {
+        padding: $zeph-btn-padding-y-lg $zeph-btn-padding-x-lg;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: zeph-radius('lg');
+    }
+
+    // Block button
+    &-block {
+        display: block;
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    // Loading state
+    &-loading {
+        position: relative;
+        pointer-events: none;
+        opacity: 0.65;
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            top: calc(50% - 0.5rem);
+            left: calc(50% - 0.5rem);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: zeph-spin 0.75s linear infinite;
+        }
+    }
+
+    // Icon button
+    &-icon {
+        padding: $zeph-btn-padding-y;
+        line-height: 1;
+
+        svg {
+            width: 1.25em;
+            height: 1.25em;
+            vertical-align: -0.125em;
+        }
+    }
+
+    // Link button
+    &-link {
+        font-weight: 400;
+        color: zeph-color('primary');
+        text-decoration: none;
+        background-color: transparent;
+        border-color: transparent;
+
+        &:hover {
+            color: darken(zeph-color('primary'), 15%);
+            text-decoration: underline;
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        &:disabled {
+            color: zeph-color('gray', '600');
+            pointer-events: none;
+        }
+    }
+
+    // Button group
+    &-group {
+        position: relative;
+        display: inline-flex;
+        vertical-align: middle;
+
+        .#{$prefix}btn {
+            position: relative;
+            flex: 1 1 auto;
+
+            &:not(:first-child) {
+                margin-left: -$zeph-border-width;
+            }
+
+            &:not(:last-child) {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            &:not(:first-child) {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
+}

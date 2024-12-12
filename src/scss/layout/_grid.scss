@@ -1,0 +1,124 @@
+.#{$prefix}row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -($zeph-grid-gutter * 0.5);
+    margin-left: -($zeph-grid-gutter * 0.5);
+
+    // No-gutters variant
+    &.no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+
+        > .#{$prefix}col {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+}
+
+.#{$prefix}col {
+    position: relative;
+    width: 100%;
+    padding-right: $zeph-grid-gutter * 0.5;
+    padding-left: $zeph-grid-gutter * 0.5;
+    flex: 1 0 0%;
+}
+
+// Generate col-size classes default
+@for $i from 1 through $zeph-grid-columns {
+    .#{$prefix}col-#{$i} {
+        flex: 0 0 percentage($i / $zeph-grid-columns);
+        max-width: percentage($i / $zeph-grid-columns);
+    }
+}
+
+// Auto
+.#{$prefix}col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+}
+
+// Offsets (misal .col-offset-1 untuk margin-left)
+@for $i from 1 through ($zeph-grid-columns - 1) {
+    .#{$prefix}offset-#{$i} {
+        margin-left: percentage($i / $zeph-grid-columns) !important;
+    }
+}
+
+// Order classes
+@for $i from 0 through $zeph-grid-columns {
+    .#{$prefix}order-#{$i} {
+        order: $i !important;
+    }
+}
+
+// Alignment self
+.#{$prefix}align-self-start {
+    align-self: flex-start !important;
+}
+.#{$prefix}align-self-center {
+    align-self: center !important;
+}
+.#{$prefix}align-self-end {
+    align-self: flex-end !important;
+}
+
+// Responsive variants untuk tiap breakpoint
+@mixin generate-grid-classes($bp) {
+    @for $i from 1 through $zeph-grid-columns {
+        .#{$prefix}col-#{$bp}-#{$i} {
+            @include zeph-media-up($bp) {
+                flex: 0 0 percentage($i / $zeph-grid-columns);
+                max-width: percentage($i / $zeph-grid-columns);
+            }
+        }
+    }
+
+    // Auto
+    .#{$prefix}col-#{$bp}-auto {
+        @include zeph-media-up($bp) {
+            flex: 0 0 auto;
+            width: auto;
+        }
+    }
+
+    // Offset
+    @for $o from 1 through ($zeph-grid-columns - 1) {
+        .#{$prefix}offset-#{$bp}-#{$o} {
+            @include zeph-media-up($bp) {
+                margin-left: percentage($o / $zeph-grid-columns) !important;
+            }
+        }
+    }
+
+    // Order
+    @for $ord from 0 through $zeph-grid-columns {
+        .#{$prefix}order-#{$bp}-#{$ord} {
+            @include zeph-media-up($bp) {
+                order: $ord !important;
+            }
+        }
+    }
+
+    // Alignment self per breakpoint
+    .#{$prefix}align-self-#{$bp}-start {
+        @include zeph-media-up($bp) {
+            align-self: flex-start !important;
+        }
+    }
+    .#{$prefix}align-self-#{$bp}-center {
+        @include zeph-media-up($bp) {
+            align-self: center !important;
+        }
+    }
+    .#{$prefix}align-self-#{$bp}-end {
+        @include zeph-media-up($bp) {
+            align-self: flex-end !important;
+        }
+    }
+}
+
+@each $bp in map-keys($zeph-breakpoints) {
+    @include generate-grid-classes($bp);
+}

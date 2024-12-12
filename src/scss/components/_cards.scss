@@ -1,0 +1,106 @@
+.#{$prefix}card {
+    @extend %zeph-card-base;
+
+    &-header {
+        padding: 0.75rem 1rem;
+        background-color: zeph-color('gray', '100');
+        border-bottom: 1px solid zeph-color('gray', '200');
+        font-weight: 500;
+    }
+
+    &-body {
+        flex: 1 1 auto;
+        padding: 1rem;
+    }
+
+    &-footer {
+        padding: 0.75rem 1rem;
+        background-color: zeph-color('gray', '100');
+        border-top: 1px solid zeph-color('gray', '200');
+    }
+
+    &-title {
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+
+    &-subtitle {
+        margin-top: -0.25rem;
+        margin-bottom: 0.5rem;
+        color: zeph-color('gray', '600');
+    }
+
+    &-text {
+        margin-bottom: 1rem;
+        color: zeph-color('gray', '900');
+    }
+
+    &-img-top,
+    &-img-bottom {
+        width: 100%;
+    }
+
+    &-img-top {
+        border-top-left-radius: calc(#{zeph-radius('lg')} - 1px);
+        border-top-right-radius: calc(#{zeph-radius('lg')} - 1px);
+    }
+
+    &-img-bottom {
+        border-bottom-left-radius: calc(#{zeph-radius('lg')} - 1px);
+        border-bottom-right-radius: calc(#{zeph-radius('lg')} - 1px);
+    }
+
+    &-img-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        border-radius: zeph-radius('lg');
+        color: white;
+    }
+
+    // Variants: border colors
+    &-border-primary {
+        border-color: zeph-color('primary', 'base');
+    }
+
+    &-border-secondary {
+        border-color: zeph-color('secondary', 'base');
+    }
+
+    &-border-success {
+        border-color: zeph-color('success', 'base');
+    }
+
+    &-border-danger {
+        border-color: zeph-color('danger', 'base');
+    }
+
+    &-border-info {
+        border-color: zeph-color('info', 'base');
+    }
+
+    // Card groups (cards sharing same width/height)
+    &-group {
+        display: flex;
+        flex-flow: row wrap;
+
+        .#{$prefix}card {
+            margin: 0.5rem;
+            flex: 1 1 calc(33.333% - 1rem);
+        }
+    }
+
+    // Horizontal layout
+    &-horizontal {
+        display: flex;
+        flex-direction: row;
+
+        @include zeph-media-down('sm') {
+            flex-direction: column;
+        }
+    }
+}

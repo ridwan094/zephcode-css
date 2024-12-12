@@ -1,0 +1,31 @@
+.#{$prefix}breadcrumb {
+    @extend %zeph-breadcrumb-base;
+
+    .#{$prefix}breadcrumb-item {
+        display: inline-block;
+
+        // Separator
+        + .#{$prefix}breadcrumb-item::before {
+            content: "/";
+            padding: 0 0.5rem;
+            color: zeph-color('gray', '500');
+        }
+
+        a {
+            color: zeph-color('primary');
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+                color: zeph-color('primary', 'dark');
+            }
+        }
+
+        &.active {
+            color: zeph-color('gray', '700');
+            font-weight: 500;
+            cursor: default;
+            text-decoration: none;
+        }
+    }
+}

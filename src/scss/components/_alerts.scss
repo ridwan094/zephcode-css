@@ -1,0 +1,95 @@
+.#{$prefix}alert {
+    @extend %zeph-alert-base;
+    // ARIA role untuk alert
+    [role="alert"] & {
+        @extend %zeph-alert-base;
+    }
+
+    // Variants
+    &-primary {
+        background-color: zeph-color('primary', 'light');
+        border-color: zeph-color('primary', 'base');
+        color: color-contrast(zeph-color('primary', 'light'));
+    }
+
+    &-secondary {
+        background-color: zeph-color('secondary', 'light');
+        border-color: zeph-color('secondary', 'base');
+        color: color-contrast(zeph-color('secondary', 'light'));
+    }
+
+    &-success {
+        background-color: zeph-color('success', 'light');
+        border-color: zeph-color('success', 'base');
+        color: color-contrast(zeph-color('success', 'light'));
+    }
+
+    &-danger {
+        background-color: zeph-color('danger', 'light');
+        border-color: zeph-color('danger', 'base');
+        color: color-contrast(zeph-color('danger', 'light'));
+    }
+
+    &-warning {
+        background-color: zeph-color('warning', 'light');
+        border-color: zeph-color('warning', 'base');
+        color: color-contrast(zeph-color('warning', 'light'));
+    }
+
+    &-info {
+        background-color: zeph-color('info', 'light');
+        border-color: zeph-color('info', 'base');
+        color: color-contrast(zeph-color('info', 'light'));
+    }
+
+    // Light/dark variants (opsional)
+    &-light {
+        background-color: zeph-color('gray', '100');
+        border-color: zeph-color('gray', '200');
+        color: zeph-color('gray', '800');
+    }
+
+    &-dark {
+        background-color: zeph-color('gray', '800');
+        border-color: zeph-color('gray', '900');
+        color: zeph-color('gray', '100');
+    }
+
+    // Dismissible alerts
+    &-dismissible {
+        padding-right: 3rem;
+        position: relative;
+
+        .#{$prefix}alert-close {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: transparent;
+            border: 0;
+            font-size: 1.25rem;
+            line-height: 1;
+            cursor: pointer;
+            opacity: 0.5;
+            color: inherit;
+
+            &:hover {
+                opacity: 0.75;
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 0.2rem rgba(zeph-color('primary'), 0.25);
+            }
+        }
+    }
+
+    // Fade and show classes for smooth transitions
+    &.fade {
+        opacity: 0;
+        transition: opacity 0.15s linear;
+    }
+
+    &.show {
+        opacity: 1;
+    }
+}
