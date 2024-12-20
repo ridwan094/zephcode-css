@@ -1,6 +1,7 @@
 .#{$prefix}badge {
     @extend %zeph-badge-base;
 
+    // Variants
     &-primary {
         background-color: zeph-color('primary', 'base');
         color: color-contrast(zeph-color('primary', 'base'));
@@ -49,9 +50,17 @@
     // Badges as links
     a& {
         text-decoration: none;
+        transition: color 0.2s ease, background-color 0.2s ease;
 
         &:hover {
             opacity: 0.85;
+            background-color: darken(zeph-color('primary', 'base'), 10%);
+            color: lighten(color-contrast(zeph-color('primary', 'base')), 10%);
+        }
+
+        &:focus {
+            outline: 2px solid darken(zeph-color('primary', 'base'), 20%);
+            outline-offset: 2px;
         }
     }
 }

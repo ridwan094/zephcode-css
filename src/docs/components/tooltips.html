@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltips - ZephCode CSS</title>
+  <link rel="stylesheet" href="../../dist/zephcode.css">
+  <script defer src="../../dist/zephcode.bundle.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Tooltips</h1>
+    <p>Learn how to use and customize tooltips in ZephCode CSS.</p>
+  </header>
+
+  <main>
+    <!-- Basic Tooltips -->
+    <section>
+      <h2>Basic Tooltips</h2>
+      <p>
+        Hover over the <span class="zeph-tooltip" data-zeph-tooltip="This is a basic tooltip.">text</span> to see the tooltip.
+      </p>
+    </section>
+
+    <!-- Tooltip Positions -->
+    <section>
+      <h2>Tooltip Positions</h2>
+      <div class="example-grid">
+        <button class="zeph-btn" data-zeph-tooltip="Tooltip on top" data-zeph-placement="top">Top</button>
+        <button class="zeph-btn" data-zeph-tooltip="Tooltip on right" data-zeph-placement="right">Right</button>
+        <button class="zeph-btn" data-zeph-tooltip="Tooltip on bottom" data-zeph-placement="bottom">Bottom</button>
+        <button class="zeph-btn" data-zeph-tooltip="Tooltip on left" data-zeph-placement="left">Left</button>
+      </div>
+    </section>
+
+    <!-- Interactive Tooltips -->
+    <section>
+      <h2>Interactive Tooltips</h2>
+      <p>
+        Click the <button class="zeph-btn" data-zeph-tooltip="Click me to see more!" data-zeph-interactive="true">button</button> to trigger an interactive tooltip.
+      </p>
+    </section>
+
+    <!-- Tooltip with Custom Colors -->
+    <section>
+      <h2>Tooltip with Custom Colors</h2>
+      <p>
+        Hover over the <span class="zeph-tooltip zeph-tooltip-custom" data-zeph-tooltip="Customized Tooltip" style="--tooltip-bg: #ff5722; --tooltip-color: #fff;">custom text</span> to see a tooltip with custom styles.
+      </p>
+    </section>
+
+    <!-- Tooltip Accessibility -->
+    <section>
+      <h2>Accessible Tooltips</h2>
+      <p>
+        Use <span class="zeph-tooltip" aria-label="This tooltip is accessible for screen readers.">accessible tooltips</span> to improve user experience.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 ZephCode CSS. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -2,9 +2,9 @@ import { defineConfig } from 'vite';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 
-export default deefineConfig({
+export default defineConfig({
     server: {
-        port: 3000,
+        port: process.env.PORT || 3000,
         open: true,
         host: true
     },
@@ -19,9 +19,9 @@ export default deefineConfig({
                 autoprefixer(),
                 cssnano({
                     preset: ['default', {
-                        discardComments: {
-                            removeAll: true,
-                        },
+                        discardComments: {removeAll: true },
+                        reduceIdents: false,
+                        mergeRules: true,
                     }]
                 })
             ]
@@ -29,7 +29,7 @@ export default deefineConfig({
     },
     build: {
         outDir: 'dist',
-        assetDir: 'assets',
+        assetsDir: 'assets',
         sourcemap: true,
         lib: {
             entry: 'src/js/index.js',

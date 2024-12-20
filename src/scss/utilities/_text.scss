@@ -1,53 +1,71 @@
 // Alignment
 @mixin generate-text-alignment($bp) {
-    .#{$prefix}text#{"#{$bp}-left"} { text-align: left !important; }
-    .#{$prefix}text#{"#{$bp}-center"} { text-align: center !important; }
-    .#{$prefix}text#{"#{$bp}-right"} { text-align: right !important; }
-    .#{$prefix}text#{"#{$bp}-justify"} { text-align: justify !important; }
-  }
-  
-  // Default (no breakpoint)
-  @include generate-text-alignment('');
-  @each $breakpoint, $width in $zeph-breakpoints {
-    @if $breakpoint != 'xs' {
-      @include zeph-media-up($breakpoint) {
-        @include generate-text-alignment($breakpoint);
-      }
+  .#{$prefix}text#{"#{$bp}-start"} { text-align: start !important; }
+  .#{$prefix}text#{"#{$bp}-center"} { text-align: center !important; }
+  .#{$prefix}text#{"#{$bp}-end"} { text-align: end !important; }
+  .#{$prefix}text#{"#{$bp}-justify"} { text-align: justify !important; }
+}
+
+// Default (no breakpoint)
+@include generate-text-alignment('');
+@each $breakpoint, $width in $zeph-breakpoints {
+  @if $breakpoint != 'xs' {
+    @include zeph-media-up($breakpoint) {
+      @include generate-text-alignment($breakpoint);
     }
   }
-  
-  // Text transform
-  .#{$prefix}text-lowercase { text-transform: lowercase !important; }
-  .#{$prefix}text-uppercase { text-transform: uppercase !important; }
-  .#{$prefix}text-capitalize { text-transform: capitalize !important; }
-  
-  // Text decoration
-  .#{$prefix}text-decoration-none { text-decoration: none !important; }
-  .#{$prefix}text-decoration-underline { text-decoration: underline !important; }
-  .#{$prefix}text-decoration-line-through { text-decoration: line-through !important; }
-  
-  // Font weight
-  .#{$prefix}font-weight-light { font-weight: 300 !important; }
-  .#{$prefix}font-weight-normal { font-weight: 400 !important; }
-  .#{$prefix}font-weight-medium { font-weight: 500 !important; }
-  .#{$prefix}font-weight-bold { font-weight: 700 !important; }
-  
-  // Line height
-  .#{$prefix}lh-1 { line-height: 1 !important; }
-  .#{$prefix}lh-sm { line-height: 1.25 !important; }
-  .#{$prefix}lh-base { line-height: 1.5 !important; }
-  .#{$prefix}lh-lg { line-height: 2 !important; }
-  
-  // Letter spacing
-  .#{$prefix}ls-tight { letter-spacing: -0.025em !important; }
-  .#{$prefix}ls-normal { letter-spacing: 0 !important; }
-  .#{$prefix}ls-wide { letter-spacing: 0.05em !important; }
-  
-  // White space
-  .#{$prefix}text-nowrap { white-space: nowrap !important; }
-  .#{$prefix}text-wrap { white-space: normal !important; }
-  .#{$prefix}text-break { overflow-wrap: break-word !important; }
-  
-  // Color inherit atau reset
-  .#{$prefix}text-reset { color: inherit !important; }
-  
+}
+
+// Text transform
+.#{$prefix}text-lowercase { text-transform: lowercase !important; }
+.#{$prefix}text-uppercase { text-transform: uppercase !important; }
+.#{$prefix}text-capitalize { text-transform: capitalize !important; }
+
+// Text transform responsive
+@mixin generate-text-transform($bp) {
+  .#{$prefix}text#{"#{$bp}-lowercase"} { text-transform: lowercase !important; }
+  .#{$prefix}text#{"#{$bp}-uppercase"} { text-transform: uppercase !important; }
+  .#{$prefix}text#{"#{$bp}-capitalize"} { text-transform: capitalize !important; }
+}
+@each $breakpoint, $width in $zeph-breakpoints {
+  @if $breakpoint != 'xs' {
+    @include zeph-media-up($breakpoint) {
+      @include generate-text-transform($breakpoint);
+    }
+  }
+}
+
+// Text decoration
+.#{$prefix}text-decoration-none { text-decoration: none !important; }
+.#{$prefix}text-decoration-underline { text-decoration: underline !important; }
+.#{$prefix}text-decoration-line-through { text-decoration: line-through !important; }
+.#{$prefix}hover-text-decoration-underline:hover { text-decoration: underline !important; }
+
+// Font weight
+.#{$prefix}font-weight-light { font-weight: 300 !important; }
+.#{$prefix}font-weight-normal { font-weight: 400 !important; }
+.#{$prefix}font-weight-medium { font-weight: 500 !important; }
+.#{$prefix}font-weight-bold { font-weight: 700 !important; }
+
+// Line height
+.#{$prefix}lh-1 { line-height: 1 !important; }
+.#{$prefix}lh-sm { line-height: 1.25 !important; }
+.#{$prefix}lh-base { line-height: 1.5 !important; }
+.#{$prefix}lh-lg { line-height: 2 !important; }
+
+// Letter spacing
+.#{$prefix}ls-tight { letter-spacing: -0.015em !important; }
+.#{$prefix}ls-normal { letter-spacing: 0 !important; }
+.#{$prefix}ls-wide { letter-spacing: 0.05em !important; }
+
+// White space
+.#{$prefix}text-nowrap { white-space: nowrap !important; }
+.#{$prefix}text-wrap { white-space: normal !important; }
+.#{$prefix}text-break { overflow-wrap: break-word !important; }
+
+// Additional utilities
+.#{$prefix}word-spacing-sm { word-spacing: 0.1em !important; }
+.#{$prefix}word-spacing-lg { word-spacing: 0.3em !important; }
+
+// Color reset
+.#{$prefix}text-reset { color: inherit !important; }

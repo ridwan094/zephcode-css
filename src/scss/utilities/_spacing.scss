@@ -1,61 +1,86 @@
 @mixin generate-spacing-classes($bp) {
-    @each $key, $value in $zeph-spacers {
-      // margin
-      .#{$prefix}m#{"#{$bp}-#{$key}"} { margin: #{$value} !important; }
-      .#{$prefix}mt#{"#{$bp}-#{$key}"} { margin-top: #{$value} !important; }
-      .#{$prefix}mr#{"#{$bp}-#{$key}"} { margin-right: #{$value} !important; }
-      .#{$prefix}mb#{"#{$bp}-#{$key}"} { margin-bottom: #{$value} !important; }
-      .#{$prefix}ml#{"#{$bp}-#{$key}"} { margin-left: #{$value} !important; }
-      .#{$prefix}mx#{"#{$bp}-#{$key}"} {
-        margin-left: #{$value} !important;
-        margin-right: #{$value} !important;
-      }
-      .#{$prefix}my#{"#{$bp}-#{$key}"} {
-        margin-top: #{$value} !important;
-        margin-bottom: #{$value} !important;
-      }
-  
-      // padding
-      .#{$prefix}p#{"#{$bp}-#{$key}"} { padding: #{$value} !important; }
-      .#{$prefix}pt#{"#{$bp}-#{$key}"} { padding-top: #{$value} !important; }
-      .#{$prefix}pr#{"#{$bp}-#{$key}"} { padding-right: #{$value} !important; }
-      .#{$prefix}pb#{"#{$bp}-#{$key}"} { padding-bottom: #{$value} !important; }
-      .#{$prefix}pl#{"#{$bp}-#{$key}"} { padding-left: #{$value} !important; }
-      .#{$prefix}px#{"#{$bp}-#{$key}"} {
-        padding-left: #{$value} !important;
-        padding-right: #{$value} !important;
-      }
-      .#{$prefix}py#{"#{$bp}-#{$key}"} {
-        padding-top: #{$value} !important;
-        padding-bottom: #{$value} !important;
-      }
+  @each $key, $value in $zeph-spacers {
+    // Margin
+    .#{$prefix}m#{"#{$bp}-#{$key}"} { margin: #{$value} !important; }
+    .#{$prefix}mt#{"#{$bp}-#{$key}"} { margin-top: #{$value} !important; }
+    .#{$prefix}mr#{"#{$bp}-#{$key}"} { margin-right: #{$value} !important; }
+    .#{$prefix}mb#{"#{$bp}-#{$key}"} { margin-bottom: #{$value} !important; }
+    .#{$prefix}ml#{"#{$bp}-#{$key}"} { margin-left: #{$value} !important; }
+    .#{$prefix}mx#{"#{$bp}-#{$key}"} {
+      margin-left: #{$value} !important;
+      margin-right: #{$value} !important;
     }
-  
-    // Auto margin utilities
-    .#{$prefix}m#{"#{$bp}-auto"} { margin: auto !important; }
-    .#{$prefix}mx#{"#{$bp}-auto"} {
-      margin-left: auto !important;
-      margin-right: auto !important;
+    .#{$prefix}my#{"#{$bp}-#{$key}"} {
+      margin-top: #{$value} !important;
+      margin-bottom: #{$value} !important;
     }
-    .#{$prefix}my#{"#{$bp}-auto"} {
-      margin-top: auto !important;
-      margin-bottom: auto !important;
+
+    // Padding
+    .#{$prefix}p#{"#{$bp}-#{$key}"} { padding: #{$value} !important; }
+    .#{$prefix}pt#{"#{$bp}-#{$key}"} { padding-top: #{$value} !important; }
+    .#{$prefix}pr#{"#{$bp}-#{$key}"} { padding-right: #{$value} !important; }
+    .#{$prefix}pb#{"#{$bp}-#{$key}"} { padding-bottom: #{$value} !important; }
+    .#{$prefix}pl#{"#{$bp}-#{$key}"} { padding-left: #{$value} !important; }
+    .#{$prefix}px#{"#{$bp}-#{$key}"} {
+      padding-left: #{$value} !important;
+      padding-right: #{$value} !important;
     }
-    .#{$prefix}ml#{"#{$bp}-auto"} { margin-left: auto !important; }
-    .#{$prefix}mr#{"#{$bp}-auto"} { margin-right: auto !important; }
-    .#{$prefix}mt#{"#{$bp}-auto"} { margin-top: auto !important; }
-    .#{$prefix}mb#{"#{$bp}-auto"} { margin-bottom: auto !important; }
-  }
-  
-  // Default (no breakpoint)
-  @include generate-spacing-classes('');
-  
-  // Responsive variants
-  @each $breakpoint, $width in $zeph-breakpoints {
-    @if $breakpoint != 'xs' {
-      @include zeph-media-up($breakpoint) {
-        @include generate-spacing-classes($breakpoint);
-      }
+    .#{$prefix}py#{"#{$bp}-#{$key}"} {
+      padding-top: #{$value} !important;
+      padding-bottom: #{$value} !important;
+    }
+
+    // Negative margin
+    .#{$prefix}m#{"#{$bp}-n#{$key}"} { margin: -#{$value} !important; }
+    .#{$prefix}mt#{"#{$bp}-n#{$key}"} { margin-top: -#{$value} !important; }
+    .#{$prefix}mr#{"#{$bp}-n#{$key}"} { margin-right: -#{$value} !important; }
+    .#{$prefix}mb#{"#{$bp}-n#{$key}"} { margin-bottom: -#{$value} !important; }
+    .#{$prefix}ml#{"#{$bp}-n#{$key}"} { margin-left: -#{$value} !important; }
+    .#{$prefix}mx#{"#{$bp}-n#{$key}"} {
+      margin-left: -#{$value} !important;
+      margin-right: -#{$value} !important;
+    }
+    .#{$prefix}my#{"#{$bp}-n#{$key}"} {
+      margin-top: -#{$value} !important;
+      margin-bottom: -#{$value} !important;
     }
   }
-  
+
+  // Auto margin
+  .#{$prefix}m#{"#{$bp}-auto"} { margin: auto !important; }
+  .#{$prefix}mx#{"#{$bp}-auto"} {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .#{$prefix}my#{"#{$bp}-auto"} {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+  .#{$prefix}mt#{"#{$bp}-auto"} { margin-top: auto !important; }
+  .#{$prefix}mb#{"#{$bp}-auto"} { margin-bottom: auto !important; }
+  .#{$prefix}ml#{"#{$bp}-auto"} { margin-left: auto !important; }
+  .#{$prefix}mr#{"#{$bp}-auto"} { margin-right: auto !important; }
+
+  // Gap utilities (for flex/grid)
+  @each $gap, $size in $zeph-spacers {
+    .#{$prefix}gap#{"#{$bp}-#{$gap}"} {
+      gap: $size !important;
+    }
+    .#{$prefix}gx#{"#{$bp}-#{$gap}"} {
+      column-gap: $size !important;
+    }
+    .#{$prefix}gy#{"#{$bp}-#{$gap}"} {
+      row-gap: $size !important;
+    }
+  }
+}
+
+// Default (no breakpoint)
+@include generate-spacing-classes('');
+
+// Responsive variants
+@each $breakpoint, $width in $zeph-breakpoints {
+  @include zeph-media-up($breakpoint) {
+    @include generate-spacing-classes($breakpoint);
+  }
+}

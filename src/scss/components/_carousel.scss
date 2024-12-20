@@ -1,18 +1,20 @@
 .#{$prefix}carousel {
     position: relative;
+    width: 100%;
+    overflow: hidden;
 
     &-inner {
         position: relative;
+        display: flex;
         width: 100%;
         overflow: hidden;
-        display: flex;
     }
 
     &-item {
         position: relative;
         flex: 0 0 100%;
         width: 100%;
-        transition: transform 0.6s ease;
+        transition: transform 0.6s ease, opacity 0.6s ease;
         backface-visibility: hidden;
         perspective: 1000px;
 
@@ -23,6 +25,7 @@
 
         &.active {
             display: block;
+            opacity: 1;
         }
 
         &.next {
@@ -37,6 +40,15 @@
         &.active.prev {
             transform: translateX(0);
         }
+
+        &.fade {
+            opacity: 0;
+            transform: none;
+
+            &.active {
+                opacity: 1;
+            }
+        }
     }
 
     &-control-prev,
@@ -47,17 +59,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 2rem;
-        height: 2rem;
-        background-color: rgba(0,0,0,0.5);
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: rgba(0, 0, 0, 0.5);
         border-radius: 50%;
         color: #fff;
         text-decoration: none;
         cursor: pointer;
         z-index: 5;
+        transition: background-color 0.3s ease, transform 0.3s ease;
 
         &:hover {
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.1);
         }
 
         &.disabled {
@@ -86,19 +100,21 @@
         list-style: none;
 
         li {
-            width: 0.5rem;
-            height: 0.5rem;
-            background-color: rgba(255,255,255,0.5);
+            width: 0.75rem;
+            height: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.5);
             border-radius: 50%;
             margin: 0 0.25rem;
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
 
             &.active {
                 background-color: #fff;
             }
 
             &:hover {
-                background-color: rgba(255,255,255,0.75);
+                background-color: rgba(255, 255, 255, 0.75);
+                transform: scale(1.2);
             }
         }
     }
@@ -110,15 +126,26 @@
         transform: translateX(-50%);
         text-align: center;
         color: #fff;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        padding: 0.5rem 1rem;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: zeph-radius('md');
 
         h5 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             margin-bottom: 0.5rem;
+
+            @include zeph-media-down('sm') {
+                font-size: 1rem;
+            }
         }
 
         p {
             margin: 0;
+
+            @include zeph-media-down('sm') {
+                font-size: 0.875rem;
+            }
         }
     }
 
@@ -126,18 +153,26 @@
     &-fade {
         .#{$prefix}carousel-item {
             opacity: 0;
-            transition: opacity 0.6s ease;
-            transform: none !important;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: none;
 
             &.active {
                 opacity: 1;
-            }
-
-            &.active.next,
-            &.active.prev,
-            &.next,
-            &.prev {
                 transform: none;
+            }
+        }
+    }
+
+    // Swipe support
+    &-touch {
+        touch-action: pan-y;
+        user-select: none;
+
+        .#{$prefix}carousel-item {
+            transition: transform 0.3s ease;
+
+            &:active {
+                cursor: grabbing;
             }
         }
     }

@@ -1,8 +1,8 @@
 .#{$prefix}header {
     width: 100%;
-    background-color: zeph-color(gray, 100);
-    border-bottom: 1px solid zeph-color(gray, 200);
-    padding: map-get($zeph-spacers, md) map-get($zeph-spacers, md);
+    background-color: zeph-color('gray', '100');
+    border-bottom: 1px solid zeph-color('gray', '200');
+    padding: map-get($zeph-spacers, md);
     display: flex;
     align-items: center;
 
@@ -10,6 +10,8 @@
         position: sticky;
         top: 0;
         z-index: zeph-z('sticky');
+        background-color: zeph-color('gray', '100');
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     &-brand {
@@ -17,12 +19,12 @@
         align-items: center;
         font-size: 1.5rem;
         font-weight: 500;
-        color: zeph-color(gray, 900);
+        color: zeph-color('gray', '900');
         text-decoration: none;
         margin-right: map-get($zeph-spacers, lg);
 
         &:hover {
-            color: zeph-color(primary, dark);
+            color: zeph-color('primary', 'dark');
         }
 
         img {
@@ -38,7 +40,7 @@
         margin-left: auto;
 
         a {
-            color: zeph-color(gray, 700);
+            color: zeph-color('gray', '700');
             padding: map-get($zeph-spacers, sm);
             text-decoration: none;
             margin: 0 map-get($zeph-spacers, xs);
@@ -49,11 +51,10 @@
 
             &.active {
                 font-weight: 500;
-                color: zeph-color('primary','dark');
+                color: zeph-color('primary', 'dark');
             }
         }
 
-        // Responsive collapse pada layar kecil
         @include zeph-media-down('sm') {
             flex-direction: column;
             width: 100%;
@@ -73,14 +74,14 @@
 
         input {
             padding: map-get($zeph-spacers, xs) map-get($zeph-spacers, sm);
-            border: 1px solid zeph-color(gray, 300);
-            border-radius: zeph-radius(md);
+            border: 1px solid zeph-color('gray', '300');
+            border-radius: zeph-radius('md');
             width: 200px;
 
             &:focus {
                 outline: none;
                 border-color: zeph-color('primary');
-                box-shadow: 0 0 0 0.2rem rgba(zeph-color('primary'),0.25);
+                box-shadow: 0 0 0 0.2rem rgba(zeph-color('primary'), 0.25);
             }
         }
 
@@ -92,39 +93,62 @@
         }
     }
 
-    // Theme variants
     &.header-dark {
-        background-color: zeph-color('gray','900');
+        background-color: zeph-color('gray', '900');
         color: white;
-        border-bottom: 1px solid zeph-color('gray','700');
+        border-bottom: 1px solid zeph-color('gray', '700');
 
         &-brand {
             color: white;
             &:hover {
-                color: zeph-color('primary','light');
+                color: zeph-color('primary', 'light');
             }
         }
 
         &-nav a {
-            color: rgba(255,255,255,0.75);
+            color: rgba(255, 255, 255, 0.75);
             &:hover {
                 color: white;
             }
         }
 
         &-search input {
-            background-color: zeph-color('gray','800');
+            background-color: zeph-color('gray', '800');
             color: white;
-            border-color: zeph-color('gray','700');
+            border-color: zeph-color('gray', '700');
         }
     }
 
-    // Subheader (misal info bar di bawah header)
     &-sub {
         width: 100%;
-        background-color: zeph-color('gray','200');
+        background-color: zeph-color('gray', '200');
         font-size: 0.875rem;
         padding: map-get($zeph-spacers, xs) map-get($zeph-spacers, md);
-        border-top: 1px solid zeph-color(gray, 300);
+        border-top: 1px solid zeph-color('gray', '300');
+    }
+
+    // Dropdown untuk navigasi
+    &-dropdown {
+        position: relative;
+
+        &-toggle {
+            cursor: pointer;
+            &:hover + .#{$prefix}dropdown-menu {
+                display: block;
+            }
+        }
+
+        &-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: zeph-z('dropdown');
+            min-width: 10rem;
+            background-color: white;
+            border: 1px solid zeph-color('gray', '200');
+            border-radius: zeph-radius('md');
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
     }
 }

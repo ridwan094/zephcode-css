@@ -24,7 +24,12 @@ $zeph-color-vars: (
 
   // Hover text color variant
   .#{$prefix}hover-text-#{$name}:hover {
-    color: #{$value} !important;
+    color: lighten(#{$value}, 10%) !important; // Hover lebih terang
+  }
+
+  // Focus text color variant
+  .#{$prefix}focus-text-#{$name}:focus {
+    color: darken(#{$value}, 10%) !important; // Focus lebih gelap
   }
 }
 
@@ -36,7 +41,12 @@ $zeph-color-vars: (
 
   // Hover background color variant
   .#{$prefix}hover-bg-#{$name}:hover {
-    background-color: #{$value} !important;
+    background-color: lighten(#{$value}, 10%) !important;
+  }
+
+  // Focus background color variant
+  .#{$prefix}focus-bg-#{$name}:focus {
+    background-color: darken(#{$value}, 10%) !important;
   }
 }
 
@@ -45,18 +55,28 @@ $zeph-color-vars: (
   .#{$prefix}border-#{$name} {
     border-color: #{$value} !important;
   }
-}
 
-// Opacity utilities untuk background (0% sampai 100%)
-@for $i from 0 through 100 {
-  .#{$prefix}bg-opacity-#{$i} {
-    background-color: rgba(0,0,0,#{$i/100}) !important;
+  // Hover border color variant
+  .#{$prefix}hover-border-#{$name}:hover {
+    border-color: lighten(#{$value}, 10%) !important;
+  }
+
+  // Focus border color variant
+  .#{$prefix}focus-border-#{$name}:focus {
+    border-color: darken(#{$value}, 10%) !important;
   }
 }
 
-// Focus variant contoh (jarang dibuat di utilities warna, tapi kita contohkan):
+// Opacity utilities for background
 @each $name, $value in $zeph-color-vars {
-  .#{$prefix}focus-bg-#{$name}:focus {
-    background-color: #{$value} !important;
+  @for $i from 0 through 100 {
+    .#{$prefix}bg-#{$name}-opacity-#{$i} {
+      background-color: rgba(#{$value}, #{$i / 100}) !important;
+    }
   }
+}
+
+// Transition utilities for smoother color changes
+.#{$prefix}transition-color {
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }

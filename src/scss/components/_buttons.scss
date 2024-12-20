@@ -2,36 +2,31 @@
 .#{$prefix}btn {
     @extend %zeph-button-base;
     cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
 
-    //Button variants
+    // Button variants
     &-primary {
-        @include zeph-button-variant(zeph-color('primary'),
-            zeph-color('primary'),
-        );
+        @include zeph-button-variant(zeph-color('primary'), zeph-color('primary', 'hover'));
     }
 
     &-secondary {
-        @include zeph-button-variant(zeph-color('secondary'),
-            zeph-color('secondary'),
-        );
+        @include zeph-button-variant(zeph-color('secondary'), zeph-color('secondary', 'hover'));
     }
 
     &-success {
-        @include zeph-button-variant(zeph-color('success'),
-            zeph-color('success'),
-        );
+        @include zeph-button-variant(zeph-color('success'), zeph-color('success', 'hover'));
     }
 
     &-danger {
-        @include zeph-button-variant(zeph-color('danger'),
-            zeph-color('danger'),
-        );
+        @include zeph-button-variant(zeph-color('danger'), zeph-color('danger', 'hover'));
     }
 
     &-info {
-        @include zeph-button-variant(zeph-color('info'),
-            zeph-color('info'),
-        );
+        @include zeph-button-variant(zeph-color('info'), zeph-color('info', 'hover'));
     }
 
     // Outline buttons
@@ -51,10 +46,6 @@
         @include zeph-button-outline-variant(zeph-color('danger'));
     }
 
-    &-outline-warning {
-        @include zeph-button-outline-variant(zeph-color('warning'));
-    }
-
     &-outline-info {
         @include zeph-button-outline-variant(zeph-color('info'));
     }
@@ -62,7 +53,7 @@
     // Button sizes
     &-sm {
         padding: $zeph-btn-padding-y-sm $zeph-btn-padding-x-sm;
-        font-size: 0, 875rem;
+        font-size: 0.875rem;
         line-height: 1.5;
         border-radius: zeph-radius('sm');
     }

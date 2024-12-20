@@ -1,6 +1,7 @@
 .#{$prefix}breadcrumb {
     @extend %zeph-breadcrumb-base;
 
+    // Breadcrumb items
     .#{$prefix}breadcrumb-item {
         display: inline-block;
 
@@ -19,6 +20,11 @@
                 text-decoration: underline;
                 color: zeph-color('primary', 'dark');
             }
+
+            &:focus {
+                outline: 2px solid darken(zeph-color('primary'), 20%);
+                outline-offset: 2px;
+            }
         }
 
         &.active {
@@ -26,6 +32,19 @@
             font-weight: 500;
             cursor: default;
             text-decoration: none;
+        }
+    }
+
+    // Breadcrumb responsiveness
+    @media (max-width: 768px) {
+        .#{$prefix}breadcrumb-item {
+            display: block;
+            margin-bottom: 0.25rem;
+
+            + .#{$prefix}breadcrumb-item::before {
+                content: ">";
+                padding: 0 0.25rem;
+            }
         }
     }
 }

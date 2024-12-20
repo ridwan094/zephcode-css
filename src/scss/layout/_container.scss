@@ -23,6 +23,23 @@
     @include zeph-media-up('2xl') {
         max-width: 1320px;
     }
+
+    // Fallback jika `zeph-media-up` tidak tersedia
+    @media (min-width: 576px) {
+        max-width: 540px;
+    }
+    @media (min-width: 768px) {
+        max-width: 720px;
+    }
+    @media (min-width: 992px) {
+        max-width: 960px;
+    }
+    @media (min-width: 1200px) {
+        max-width: 1140px;
+    }
+    @media (min-width: 1400px) {
+        max-width: 1320px;
+    }
 }
 
 // Container fluid: selalu penuh, cocok untuk layout full-bleed
@@ -34,7 +51,7 @@
     padding-left: $zeph-grid-gutter;
 }
 
-// Container khusus breakpoint, misalnya hanya beri max-width pada md ke atas
+// Container khusus breakpoint
 .#{$prefix}container-sm {
     width: 100%;
     margin: 0 auto;
@@ -74,19 +91,26 @@
     }
 }
 
-// Alignment container: memusatkan konten vertical/horizontal di viewport
-// Misalnya buat container yang tinggi minimal 100vh, konten di tengah
+// Alignment container: memusatkan konten vertical/horizontal
 .#{$prefix}container-center {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &.horizontal {
+        flex-direction: row;
+    }
+
+    &.vertical {
+        flex-direction: column;
+    }
 }
 
 // Theme variant: misal .zeph-container-dark
 .#{$prefix}container-dark {
-    background-color: zeph-color('gray','900');
-    color: zeph-color('gray','100');
+    background-color: zeph-color('gray', '900');
+    color: zeph-color('gray', '100');
 }
 
 // Container padding variants (extra utilities)
@@ -102,4 +126,19 @@
         padding-top: $value !important;
         padding-bottom: $value !important;
     }
+}
+
+// New Feature: Container dengan shadow dan border
+.#{$prefix}container-shadow {
+    @include zeph-shadow('md');
+    border: 1px solid zeph-color('gray', '300');
+    border-radius: zeph-radius('md');
+}
+
+// Sticky container
+.#{$prefix}container-sticky {
+    position: sticky;
+    top: 0;
+    z-index: zeph-z('container');
+    background-color: white;
 }

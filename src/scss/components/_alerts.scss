@@ -1,5 +1,6 @@
 .#{$prefix}alert {
     @extend %zeph-alert-base;
+
     // ARIA role untuk alert
     [role="alert"] & {
         @extend %zeph-alert-base;
@@ -79,6 +80,9 @@
             &:focus {
                 outline: none;
                 box-shadow: 0 0 0 0.2rem rgba(zeph-color('primary'), 0.25);
+
+                // Fallback untuk browser lama
+                border: 1px solid lighten(zeph-color('primary'), 30%);
             }
         }
     }
@@ -86,10 +90,12 @@
     // Fade and show classes for smooth transitions
     &.fade {
         opacity: 0;
-        transition: opacity 0.15s linear;
+        visibility: hidden;
+        transition: opacity 0.15s linear, visibility 0.15s linear;
     }
 
     &.show {
         opacity: 1;
+        visibility: visible;
     }
 }

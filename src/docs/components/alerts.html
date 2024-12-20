@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerts - ZephCode CSS</title>
+  <link rel="stylesheet" href="../../dist/zephcode.css">
+</head>
+<body>
+  <header>
+    <h1>Alerts</h1>
+    <p>Learn how to use alert components in ZephCode CSS.</p>
+  </header>
+
+  <main>
+    <!-- Basic Alerts -->
+    <section>
+      <h2>Basic Alerts</h2>
+      <div class="zeph-alert zeph-alert-primary" role="alert">
+        This is a primary alert—check it out!
+      </div>
+      <div class="zeph-alert zeph-alert-secondary" role="alert">
+        This is a secondary alert—check it out!
+      </div>
+      <div class="zeph-alert zeph-alert-success" role="alert">
+        This is a success alert—check it out!
+      </div>
+      <div class="zeph-alert zeph-alert-danger" role="alert">
+        This is a danger alert—check it out!
+      </div>
+      <div class="zeph-alert zeph-alert-warning" role="alert">
+        This is a warning alert—check it out!
+      </div>
+      <div class="zeph-alert zeph-alert-info" role="alert">
+        This is an info alert—check it out!
+      </div>
+    </section>
+
+    <!-- Dismissible Alerts -->
+    <section>
+      <h2>Dismissible Alerts</h2>
+      <div class="zeph-alert zeph-alert-success zeph-alert-dismissible" role="alert">
+        This is a success alert with dismiss functionality!
+        <button type="button" class="zeph-alert-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="zeph-alert zeph-alert-danger zeph-alert-dismissible" role="alert">
+        This is a danger alert with dismiss functionality!
+        <button type="button" class="zeph-alert-close" aria-label="Close">&times;</button>
+      </div>
+    </section>
+
+    <!-- Alerts with Additional Content -->
+    <section>
+      <h2>Alerts with Additional Content</h2>
+      <div class="zeph-alert zeph-alert-info" role="alert">
+        <h4 class="zeph-alert-heading">Heads up!</h4>
+        <p>This alert includes additional content for more information or explanation.</p>
+        <hr>
+        <p class="mb-0">Make sure to include the necessary content inline or by adding more elements.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 ZephCode CSS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // JavaScript for dismissible alerts
+    document.querySelectorAll('.zeph-alert-dismissible .zeph-alert-close').forEach(button => {
+      button.addEventListener('click', function () {
+        this.closest('.zeph-alert').style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

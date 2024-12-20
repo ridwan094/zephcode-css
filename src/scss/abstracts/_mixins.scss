@@ -49,6 +49,10 @@
 }
 
 @mixin zeph-make-col($size, $columns: $zeph-grid-columns) {
+    @if $size <=0 or $size >$columns {
+        @error "Invalid $size value: `#{$size}`. It must be between 1 and the total number of columns.";
+    }
+
     flex: 0 0 percentage($size / $columns);
     max-width: percentage($size / $columns);
     padding-right: $zeph-grid-gutter * 0.5;
@@ -74,7 +78,10 @@
 
 // Box shadow
 @mixin zeph-shadow($key) {
-    box-shadow: zeph-shadow($key);
+    @if not map-has-key($zeph-shadows, $key) {
+        @error "Invalid shadow key `#{$key}`.";
+    }
+    box-shadow: map-get($zeph-shadows, $key);
 }
 
 // Border radius
@@ -84,6 +91,9 @@
 
 // Focus ring
 @mixin zeph-focus-ring($color: 'primary') {
+    @if type-of(zeph-color($color)) != 'color' {
+        @error "Invalid color returned by zeph-color.";
+    }
     &:focus {
         outline: none;
         box-shadow: 0 0 0 3px rgba(zeph-color($color), 0.2);

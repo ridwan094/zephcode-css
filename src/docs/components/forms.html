@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms - ZephCode CSS</title>
+  <link rel="stylesheet" href="../../dist/zephcode.css">
+</head>
+<body>
+  <header>
+    <h1>Forms</h1>
+    <p>Learn how to create forms using ZephCode CSS.</p>
+  </header>
+
+  <main>
+    <!-- Basic Form -->
+    <section>
+      <h2>Basic Form</h2>
+      <form class="zeph-form">
+        <div class="zeph-form-group">
+          <label for="basic-input" class="zeph-form-label">Basic Input</label>
+          <input type="text" id="basic-input" class="zeph-form-input" placeholder="Enter text">
+        </div>
+        <div class="zeph-form-group">
+          <label for="basic-password" class="zeph-form-label">Password</label>
+          <input type="password" id="basic-password" class="zeph-form-input" placeholder="Enter password">
+        </div>
+        <button type="submit" class="zeph-btn zeph-btn-primary">Submit</button>
+      </form>
+    </section>
+
+    <!-- Form with Select -->
+    <section>
+      <h2>Form with Select</h2>
+      <form class="zeph-form">
+        <div class="zeph-form-group">
+          <label for="select-example" class="zeph-form-label">Choose an Option</label>
+          <select id="select-example" class="zeph-form-select">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+        </div>
+        <button type="submit" class="zeph-btn zeph-btn-secondary">Submit</button>
+      </form>
+    </section>
+
+    <!-- Form with Radio Buttons -->
+    <section>
+      <h2>Form with Radio Buttons</h2>
+      <form class="zeph-form">
+        <div class="zeph-form-group">
+          <label class="zeph-form-label">Choose an Option</label>
+          <div class="zeph-form-check">
+            <input type="radio" id="radio1" name="example-radio" class="zeph-form-check-input">
+            <label for="radio1" class="zeph-form-check-label">Option 1</label>
+          </div>
+          <div class="zeph-form-check">
+            <input type="radio" id="radio2" name="example-radio" class="zeph-form-check-input">
+            <label for="radio2" class="zeph-form-check-label">Option 2</label>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Form with Checkboxes -->
+    <section>
+      <h2>Form with Checkboxes</h2>
+      <form class="zeph-form">
+        <div class="zeph-form-group">
+          <label class="zeph-form-label">Select Options</label>
+          <div class="zeph-form-check">
+            <input type="checkbox" id="checkbox1" class="zeph-form-check-input">
+            <label for="checkbox1" class="zeph-form-check-label">Checkbox 1</label>
+          </div>
+          <div class="zeph-form-check">
+            <input type="checkbox" id="checkbox2" class="zeph-form-check-input">
+            <label for="checkbox2" class="zeph-form-check-label">Checkbox 2</label>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Floating Labels -->
+    <section>
+      <h2>Floating Labels</h2>
+      <form class="zeph-form zeph-form-floating">
+        <div class="zeph-form-group">
+          <input type="email" id="floatingEmail" class="zeph-form-input" placeholder=" " required>
+          <label for="floatingEmail" class="zeph-form-label">Email Address</label>
+        </div>
+        <div class="zeph-form-group">
+          <input type="password" id="floatingPassword" class="zeph-form-input" placeholder=" " required>
+          <label for="floatingPassword" class="zeph-form-label">Password</label>
+        </div>
+        <button type="submit" class="zeph-btn zeph-btn-success">Login</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 ZephCode CSS. All rights reserved.</p>
+  </footer>
+</body>
+</html>

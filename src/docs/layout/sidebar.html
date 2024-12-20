@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Documentation</title>
+    <link rel="stylesheet" href="../../../../dist/zephcode.css">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .docs-content {
+            flex-grow: 1;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <aside class="zeph-sidebar">
+        <div class="zeph-sidebar-header">
+            <h4>Sidebar Header</h4>
+        </div>
+        <nav class="zeph-sidebar-nav">
+            <ul>
+                <li class="zeph-sidebar-item">
+                    <a href="#overview" class="zeph-sidebar-link">Overview</a>
+                </li>
+                <li class="zeph-sidebar-item">
+                    <a href="#usage" class="zeph-sidebar-link">Usage</a>
+                </li>
+                <li class="zeph-sidebar-item">
+                    <a href="#examples" class="zeph-sidebar-link">Examples</a>
+                </li>
+                <li class="zeph-sidebar-item">
+                    <a href="#customization" class="zeph-sidebar-link">Customization</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="zeph-sidebar-footer">
+            <p>© 2024 ZephCode Framework</p>
+        </div>
+    </aside>
+
+    <main class="docs-content">
+        <section id="overview">
+            <h1>Sidebar</h1>
+            <p>The sidebar component provides a vertical navigation layout for your application. It's highly customizable and responsive.</p>
+        </section>
+
+        <section id="usage">
+            <h2>Usage</h2>
+            <p>Add the <code>zeph-sidebar</code> class to create a sidebar layout. Inside, use <code>zeph-sidebar-nav</code> and <code>zeph-sidebar-item</code> for structured navigation.</p>
+        </section>
+
+        <section id="examples">
+            <h2>Examples</h2>
+            <h3>Basic Sidebar</h3>
+            <pre><code>&lt;aside class="zeph-sidebar"&gt;
+    &lt;nav class="zeph-sidebar-nav"&gt;
+        &lt;ul&gt;
+            &lt;li class="zeph-sidebar-item"&gt;&lt;a href="#" class="zeph-sidebar-link"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="zeph-sidebar-item"&gt;&lt;a href="#" class="zeph-sidebar-link"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/aside&gt;</code></pre>
+        </section>
+
+        <section id="customization">
+            <h2>Customization</h2>
+            <p>Use classes like <code>zeph-sidebar-dark</code> for a dark-themed sidebar or <code>zeph-sidebar-collapsed</code> for a compact view.</p>
+        </section>
+    </main>
+
+    <script>
+        // Example: Toggle Sidebar Collapse
+        const sidebar = document.querySelector('.zeph-sidebar');
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = 'Toggle Sidebar';
+        toggleButton.style.position = 'fixed';
+        toggleButton.style.top = '1rem';
+        toggleButton.style.left = '1rem';
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('zeph-sidebar-collapsed');
+        });
+
+        document.body.appendChild(toggleButton);
+    </script>
+</body>
+</html>

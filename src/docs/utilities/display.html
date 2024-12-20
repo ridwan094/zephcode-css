@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Utilities - ZephCode</title>
+    <link rel="stylesheet" href="../../dist/zephcode.css">
+</head>
+<body>
+    <header class="zeph-header zeph-header-dark">
+        <div class="zeph-container">
+            <a href="../../index.html" class="zeph-header-brand">ZephCode Documentation</a>
+        </div>
+    </header>
+
+    <main class="zeph-container">
+        <h1>Display Utilities</h1>
+        <p>ZephCode provides classes to control the <code>display</code> property of an element. These classes are responsive and can be customized for different breakpoints.</p>
+
+        <section>
+            <h2>Default Display Classes</h2>
+            <p>These classes are applied directly to elements to control their display property.</p>
+            <div class="zeph-bg-gray-100 zeph-p-4">
+                <div class="zeph-d-block zeph-bg-primary text-white zeph-p-2">Block</div>
+                <div class="zeph-d-inline zeph-bg-success text-white zeph-p-2">Inline</div>
+                <div class="zeph-d-inline-block zeph-bg-info text-white zeph-p-2">Inline Block</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Flex and Grid Display</h2>
+            <p>Use <code>zeph-d-flex</code> or <code>zeph-d-grid</code> for flexbox and grid layouts.</p>
+            <div class="zeph-bg-gray-100 zeph-p-4">
+                <div class="zeph-d-flex zeph-bg-primary text-white zeph-p-2">
+                    <div class="zeph-mx-2">Flex Item 1</div>
+                    <div class="zeph-mx-2">Flex Item 2</div>
+                </div>
+                <div class="zeph-d-grid zeph-bg-success text-white zeph-p-2" style="grid-template-columns: 1fr 1fr;">
+                    <div>Grid Item 1</div>
+                    <div>Grid Item 2</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Responsive Display Classes</h2>
+            <p>Use breakpoint-specific classes to control display at different screen sizes. For example, <code>zeph-d-md-none</code> hides an element on medium and larger screens.</p>
+            <div class="zeph-bg-gray-100 zeph-p-4">
+                <div class="zeph-d-none zeph-d-md-block zeph-bg-primary text-white zeph-p-2">Hidden on small screens</div>
+                <div class="zeph-d-block zeph-d-md-none zeph-bg-danger text-white zeph-p-2">Hidden on medium and larger screens</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Examples</h2>
+            <p>Practical examples of using display utilities in layouts:</p>
+            <h3>Responsive Navbar</h3>
+            <nav class="zeph-d-flex zeph-bg-dark text-white zeph-p-2">
+                <a href="#" class="zeph-text-reset zeph-p-2">Home</a>
+                <a href="#" class="zeph-text-reset zeph-p-2">About</a>
+                <a href="#" class="zeph-text-reset zeph-p-2">Contact</a>
+                <button class="zeph-d-block zeph-d-md-none zeph-bg-primary text-white zeph-ml-auto">Menu</button>
+            </nav>
+        </section>
+    </main>
+
+    <footer class="zeph-footer">
+        <div class="zeph-container">
+            <p>&copy; 2024 ZephCode. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../dist/zephcode.bundle.js"></script>
+</body>
+</html>

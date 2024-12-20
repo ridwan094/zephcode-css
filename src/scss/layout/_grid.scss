@@ -1,8 +1,8 @@
 .#{$prefix}row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -($zeph-grid-gutter * 0.5);
-    margin-left: -($zeph-grid-gutter * 0.5);
+    margin-right: calc(-#{$zeph-grid-gutter} / 2);
+    margin-left: calc(-#{$zeph-grid-gutter} / 2);
 
     // No-gutters variant
     &.no-gutters {
@@ -19,30 +19,30 @@
 .#{$prefix}col {
     position: relative;
     width: 100%;
-    padding-right: $zeph-grid-gutter * 0.5;
-    padding-left: $zeph-grid-gutter * 0.5;
+    padding-right: calc(#{$zeph-grid-gutter} / 2);
+    padding-left: calc(#{$zeph-grid-gutter} / 2);
     flex: 1 0 0%;
 }
 
-// Generate col-size classes default
+// Generate col-size classes
 @for $i from 1 through $zeph-grid-columns {
     .#{$prefix}col-#{$i} {
-        flex: 0 0 percentage($i / $zeph-grid-columns);
-        max-width: percentage($i / $zeph-grid-columns);
+        flex: 0 0 #{100% * $i / $zeph-grid-columns};
+        max-width: #{100% * $i / $zeph-grid-columns};
     }
 }
 
-// Auto
+// Auto width
 .#{$prefix}col-auto {
     flex: 0 0 auto;
     width: auto;
     max-width: none;
 }
 
-// Offsets (misal .col-offset-1 untuk margin-left)
+// Offsets
 @for $i from 1 through ($zeph-grid-columns - 1) {
     .#{$prefix}offset-#{$i} {
-        margin-left: percentage($i / $zeph-grid-columns) !important;
+        margin-left: #{100% * $i / $zeph-grid-columns} !important;
     }
 }
 
@@ -53,7 +53,7 @@
     }
 }
 
-// Alignment self
+// Alignment utilities
 .#{$prefix}align-self-start {
     align-self: flex-start !important;
 }
@@ -64,18 +64,34 @@
     align-self: flex-end !important;
 }
 
-// Responsive variants untuk tiap breakpoint
+// Justify-content utilities
+.#{$prefix}justify-content-start {
+    justify-content: flex-start !important;
+}
+.#{$prefix}justify-content-center {
+    justify-content: center !important;
+}
+.#{$prefix}justify-content-end {
+    justify-content: flex-end !important;
+}
+.#{$prefix}justify-content-around {
+    justify-content: space-around !important;
+}
+.#{$prefix}justify-content-between {
+    justify-content: space-between !important;
+}
+
+// Responsive grid classes
 @mixin generate-grid-classes($bp) {
     @for $i from 1 through $zeph-grid-columns {
         .#{$prefix}col-#{$bp}-#{$i} {
             @include zeph-media-up($bp) {
-                flex: 0 0 percentage($i / $zeph-grid-columns);
-                max-width: percentage($i / $zeph-grid-columns);
+                flex: 0 0 #{100% * $i / $zeph-grid-columns};
+                max-width: #{100% * $i / $zeph-grid-columns};
             }
         }
     }
 
-    // Auto
     .#{$prefix}col-#{$bp}-auto {
         @include zeph-media-up($bp) {
             flex: 0 0 auto;
@@ -83,16 +99,14 @@
         }
     }
 
-    // Offset
     @for $o from 1 through ($zeph-grid-columns - 1) {
         .#{$prefix}offset-#{$bp}-#{$o} {
             @include zeph-media-up($bp) {
-                margin-left: percentage($o / $zeph-grid-columns) !important;
+                margin-left: #{100% * $o / $zeph-grid-columns} !important;
             }
         }
     }
 
-    // Order
     @for $ord from 0 through $zeph-grid-columns {
         .#{$prefix}order-#{$bp}-#{$ord} {
             @include zeph-media-up($bp) {
@@ -101,7 +115,6 @@
         }
     }
 
-    // Alignment self per breakpoint
     .#{$prefix}align-self-#{$bp}-start {
         @include zeph-media-up($bp) {
             align-self: flex-start !important;

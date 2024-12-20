@@ -1,19 +1,19 @@
 .#{$prefix}footer {
     width: 100%;
-    background-color: zeph-color(gray, 100);
-    border-top: 1px solid zeph-color(gray, 200);
+    background-color: zeph-color('gray', '100');
+    border-top: 1px solid zeph-color('gray', '200');
     padding: $zeph-spacers(md);
     text-align: center;
-    color: zeph-color(gray, 700);
+    color: zeph-color('gray', '700');
 
     a {
-        color: zeph-color(primary);
+        color: zeph-color('primary');
         text-decoration: none;
         margin: 0 $zeph-spacers(xs);
 
         &:hover {
             text-decoration: underline;
-            color: zeph-color(primary, dark);
+            color: zeph-color('primary', 'dark');
         }
     }
 
@@ -25,16 +25,22 @@
         z-index: zeph-z('fixed');
     }
 
+    &.sticky-top {
+        position: sticky;
+        top: 0;
+        z-index: zeph-z('sticky');
+    }
+
     &-dark {
-        background-color: zeph-color(gray, 900);
-        color: zeph-color(gray, 100);
-        border-top: 1px solid zeph-color(gray, 700);
+        background-color: zeph-color('gray', '900');
+        color: zeph-color('gray', '100');
+        border-top: 1px solid zeph-color('gray', '700');
 
         a {
-            color: zeph-color('gray','100');
+            color: zeph-color('gray', '100');
 
             &:hover {
-                color: zeph-color('primary','light');
+                color: zeph-color('primary', 'light');
             }
         }
     }
@@ -53,10 +59,10 @@
 
     &-credits {
         font-size: 0.875rem;
-        color: zeph-color('gray','600');
+        color: zeph-color('gray', '600');
 
         &.text-muted {
-            color: zeph-color('gray','500');
+            color: zeph-color('gray', '500');
         }
     }
 
@@ -85,5 +91,22 @@
                 margin: $zeph-spacers(xs) 0;
             }
         }
+
+        .#{$prefix}footer-social {
+            flex-direction: column;
+
+            a {
+                margin: $zeph-spacers(xs) 0;
+            }
+        }
+    }
+
+    // Custom Utilities
+    &-shadow {
+        @include zeph-shadow('lg');
+    }
+
+    &-border {
+        border-top: 2px solid zeph-color('primary');
     }
 }

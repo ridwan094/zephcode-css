@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modals - ZephCode CSS</title>
+  <link rel="stylesheet" href="../../dist/zephcode.css">
+  <script defer src="../../dist/zephcode.bundle.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Modals</h1>
+    <p>Learn how to use modals with ZephCode CSS.</p>
+  </header>
+
+  <main>
+    <!-- Trigger Buttons -->
+    <section>
+      <h2>Basic Modal</h2>
+      <button class="zeph-btn zeph-btn-primary" data-zeph-toggle="modal" data-zeph-target="#basicModal">Open Modal</button>
+
+      <!-- Modal Structure -->
+      <div id="basicModal" class="zeph-modal">
+        <div class="zeph-modal-dialog">
+          <div class="zeph-modal-content">
+            <div class="zeph-modal-header">
+              <h5 class="zeph-modal-title">Basic Modal</h5>
+              <button type="button" class="zeph-modal-close" data-zeph-dismiss="modal">&times;</button>
+            </div>
+            <div class="zeph-modal-body">
+              <p>This is a basic modal example using ZephCode CSS.</p>
+            </div>
+            <div class="zeph-modal-footer">
+              <button type="button" class="zeph-btn zeph-btn-secondary" data-zeph-dismiss="modal">Close</button>
+              <button type="button" class="zeph-btn zeph-btn-primary">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Centered Modal -->
+    <section>
+      <h2>Centered Modal</h2>
+      <button class="zeph-btn zeph-btn-success" data-zeph-toggle="modal" data-zeph-target="#centeredModal">Open Centered Modal</button>
+
+      <div id="centeredModal" class="zeph-modal">
+        <div class="zeph-modal-dialog zeph-modal-dialog-centered">
+          <div class="zeph-modal-content">
+            <div class="zeph-modal-header">
+              <h5 class="zeph-modal-title">Centered Modal</h5>
+              <button type="button" class="zeph-modal-close" data-zeph-dismiss="modal">&times;</button>
+            </div>
+            <div class="zeph-modal-body">
+              <p>This modal is vertically centered.</p>
+            </div>
+            <div class="zeph-modal-footer">
+              <button type="button" class="zeph-btn zeph-btn-secondary" data-zeph-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scrollable Modal -->
+    <section>
+      <h2>Scrollable Modal</h2>
+      <button class="zeph-btn zeph-btn-warning" data-zeph-toggle="modal" data-zeph-target="#scrollableModal">Open Scrollable Modal</button>
+
+      <div id="scrollableModal" class="zeph-modal">
+        <div class="zeph-modal-dialog zeph-modal-dialog-scrollable">
+          <div class="zeph-modal-content">
+            <div class="zeph-modal-header">
+              <h5 class="zeph-modal-title">Scrollable Modal</h5>
+              <button type="button" class="zeph-modal-close" data-zeph-dismiss="modal">&times;</button>
+            </div>
+            <div class="zeph-modal-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at risus at quam facilisis interdum. Praesent tincidunt enim vel velit pellentesque, non varius libero posuere.</p>
+              <p>Vestibulum euismod, libero nec molestie luctus, lorem urna dictum risus, vel luctus arcu libero vitae nisi.</p>
+              <p>Additional content goes here. Add more content as needed to demonstrate scrolling.</p>
+            </div>
+            <div class="zeph-modal-footer">
+              <button type="button" class="zeph-btn zeph-btn-secondary" data-zeph-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 ZephCode CSS. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -23,3 +23,34 @@ $zeph-display-values: (none, inline, inline-block, block, flex, inline-flex, gri
     }
   }
 }
+
+// Tambahan untuk visibility utilities
+$zeph-visibility-values: (visible, hidden);
+
+@each $val in $zeph-visibility-values {
+  .#{$prefix}v-#{$val} {
+    visibility: #{$val} !important;
+  }
+}
+
+// Responsivitas visibility
+@mixin generate-visibility-classes($bp) {
+  @each $val in $zeph-visibility-values {
+    .#{$prefix}v#{"-#{$bp}-#{$val}"} {
+      visibility: #{$val} !important;
+    }
+  }
+}
+
+@each $breakpoint, $width in $zeph-breakpoints {
+  @if $breakpoint != 'xs' {
+    @include zeph-media-up($breakpoint) {
+      @include generate-visibility-classes($breakpoint);
+    }
+  }
+}
+
+// Transition untuk perubahan display/visibility
+.#{$prefix}display-transition {
+  transition: display 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}

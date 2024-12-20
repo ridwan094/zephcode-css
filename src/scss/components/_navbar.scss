@@ -15,6 +15,7 @@
         text-decoration: none;
         white-space: nowrap;
         color: zeph-color('gray', '900');
+        transition: color 0.15s ease-in-out;
 
         &:hover {
             color: zeph-color('primary');
@@ -22,6 +23,7 @@
 
         img {
             height: 2rem;
+            max-width: 100%;
         }
     }
 
@@ -31,6 +33,7 @@
         padding-left: 0;
         margin-bottom: 0;
         list-style: none;
+        transition: flex-direction 0.3s ease-in-out;
 
         .nav-item {
             padding: 0.5rem 1rem;
@@ -67,7 +70,11 @@
         background-color: transparent;
         border: 1px solid zeph-color('gray', '300');
         border-radius: zeph-radius('md');
-        transition: box-shadow 0.15s ease-in-out;
+        transition: box-shadow 0.15s ease-in-out, background-color 0.2s;
+
+        &:hover {
+            background-color: zeph-color('gray', '100');
+        }
 
         &:focus {
             outline: 0;
@@ -117,6 +124,20 @@
         }
     }
 
+    &-transparent {
+        background-color: transparent;
+        border: none;
+
+        .nav-link {
+            color: white;
+
+            &:hover,
+            &:focus {
+                color: zeph-color('primary', 'light');
+            }
+        }
+    }
+
     // Fixed positions
     &-fixed-top {
         position: fixed;
@@ -132,6 +153,17 @@
         bottom: 0;
         left: 0;
         z-index: zeph-z('fixed');
+    }
+
+    &-sticky {
+        position: sticky;
+        top: 0;
+        z-index: zeph-z('sticky');
+    }
+
+    // Utility classes
+    &.no-border {
+        border: none;
     }
 
     // Responsive behaviors

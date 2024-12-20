@@ -31,29 +31,43 @@ $zeph-flex-content: (start: flex-start, end: flex-end, center: center, between: 
 
   // Justify content
   @each $name, $val in $zeph-flex-justify {
-    .#{$prefix}justify-content#{"-#{$bp}-#{$name}"} {
+    .#{$prefix}justify#{"-#{$bp}-#{$name}"} {
       justify-content: #{$val} !important;
     }
   }
 
   // Align items
   @each $name, $val in $zeph-flex-align {
-    .#{$prefix}align-items#{"-#{$bp}-#{$name}"} {
+    .#{$prefix}items#{"-#{$bp}-#{$name}"} {
       align-items: #{$val} !important;
     }
   }
 
   // Align content
   @each $name, $val in $zeph-flex-content {
-    .#{$prefix}align-content#{"-#{$bp}-#{$name}"} {
+    .#{$prefix}content#{"-#{$bp}-#{$name}"} {
       align-content: #{$val} !important;
     }
   }
 
-  // Order
-  @for $i from 0 through 12 {
+  // Align self
+  @each $name, $val in $zeph-flex-align {
+    .#{$prefix}self#{"-#{$bp}-#{$name}"} {
+      align-self: #{$val} !important;
+    }
+  }
+
+  // Order (positive and negative)
+  @for $i from -1 through 12 {
     .#{$prefix}order#{"-#{$bp}-#{$i}"} {
       order: $i !important;
+    }
+  }
+
+  // Gap utilities
+  @each $spacer, $value in $zeph-spacers {
+    .#{$prefix}gap#{"-#{$bp}-#{$spacer}"} {
+      gap: $value !important;
     }
   }
 }
@@ -62,9 +76,7 @@ $zeph-flex-content: (start: flex-start, end: flex-end, center: center, between: 
 @include generate-flex-utilities('');
 
 @each $breakpoint, $width in $zeph-breakpoints {
-  @if $breakpoint != 'xs' {
-    @include zeph-media-up($breakpoint) {
-      @include generate-flex-utilities($breakpoint);
-    }
+  @include zeph-media-up($breakpoint) {
+    @include generate-flex-utilities($breakpoint);
   }
 }

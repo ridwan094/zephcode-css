@@ -39,6 +39,12 @@ p {
     margin-bottom: 1rem;
 }
 
+blockquote {
+    margin: 0 0 1rem;
+    padding: 0 1rem;
+    border-left: 0.25rem solid zeph-color('gray', '300');
+}
+
 // Lists
 ol,
 ul {
@@ -56,7 +62,6 @@ ul ol {
 a {
     color: zeph-color('primary');
     text-decoration: none;
-    background-color: transparent;
 
     &:hover {
         color: zeph-color('primary', 'dark');
@@ -109,6 +114,10 @@ button {
     &:focus {
         outline: none;
     }
+
+    &:active {
+        background-color: zeph-color('gray', '100');
+    }
 }
 
 // Fieldset reset
@@ -145,4 +154,10 @@ hr {
     margin: 1rem 0;
     border: 0;
     border-top: 1px solid zeph-color('gray', '200');
+}
+
+// Pseudo-element reset
+*::selection {
+    background-color: zeph-color('primary', 'light');
+    color: white;
 }

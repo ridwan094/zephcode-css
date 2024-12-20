@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar - ZephCode CSS</title>
+  <link rel="stylesheet" href="../../dist/zephcode.css">
+  <script defer src="../../dist/zephcode.bundle.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Navbar</h1>
+    <p>Learn how to create and customize navbars with ZephCode CSS.</p>
+  </header>
+
+  <main>
+    <!-- Basic Navbar -->
+    <section>
+      <h2>Basic Navbar</h2>
+      <nav class="zeph-navbar zeph-navbar-light">
+        <a class="zeph-navbar-brand" href="#">ZephCode</a>
+        <ul class="zeph-navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Navbar with Dropdown -->
+    <section>
+      <h2>Navbar with Dropdown</h2>
+      <nav class="zeph-navbar zeph-navbar-dark zeph-navbar-bg-primary">
+        <a class="zeph-navbar-brand" href="#">ZephCode</a>
+        <ul class="zeph-navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-zeph-toggle="dropdown">Services</a>
+            <div class="zeph-dropdown-menu">
+              <a class="zeph-dropdown-item" href="#">Web Development</a>
+              <a class="zeph-dropdown-item" href="#">Design</a>
+              <a class="zeph-dropdown-item" href="#">SEO</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Responsive Navbar -->
+    <section>
+      <h2>Responsive Navbar</h2>
+      <nav class="zeph-navbar zeph-navbar-light zeph-navbar-bg-gray">
+        <a class="zeph-navbar-brand" href="#">ZephCode</a>
+        <button class="zeph-navbar-toggler" data-zeph-toggle="collapse" data-zeph-target="#responsiveNavbar">
+          ☰
+        </button>
+        <div id="responsiveNavbar" class="zeph-navbar-collapse">
+          <ul class="zeph-navbar-nav">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <!-- Navbar with Form -->
+    <section>
+      <h2>Navbar with Form</h2>
+      <nav class="zeph-navbar zeph-navbar-dark zeph-navbar-bg-dark">
+        <a class="zeph-navbar-brand" href="#">ZephCode</a>
+        <form class="zeph-navbar-search">
+          <input type="text" class="zeph-form-input" placeholder="Search">
+          <button type="submit" class="zeph-btn zeph-btn-primary">Search</button>
+        </form>
+        <ul class="zeph-navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sign Up</a></li>
+        </ul>
+      </nav>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 ZephCode CSS. All rights reserved.</p>
+  </footer>
+</body>
+</html>

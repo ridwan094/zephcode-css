@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header Documentation - ZephCode CSS</title>
+  <link rel="stylesheet" href="../../../../dist/zephcode.css">
+</head>
+<body>
+  <header class="zeph-header">
+    <div class="zeph-container">
+      <a href="#" class="zeph-header-brand">
+        <img src="../../assets/logo.png" alt="ZephCode Logo">
+        ZephCode CSS
+      </a>
+      <nav class="zeph-header-nav">
+        <a href="#" class="active">Home</a>
+        <a href="#">Docs</a>
+        <a href="#">Examples</a>
+        <a href="#">About</a>
+      </nav>
+      <div class="zeph-header-search">
+        <input type="text" placeholder="Search...">
+      </div>
+    </div>
+  </header>
+
+  <main class="zeph-container">
+    <section>
+      <h1>Header Documentation</h1>
+      <p>The header component is designed to provide a clean and responsive top navigation bar.</p>
+
+      <h2>Basic Header</h2>
+      <div class="example">
+        <header class="zeph-header">
+          <a href="#" class="zeph-header-brand">Brand</a>
+          <nav class="zeph-header-nav">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+          </nav>
+        </header>
+      </div>
+      <pre><code>&lt;header class="zeph-header"&gt;
+  &lt;a href="#" class="zeph-header-brand"&gt;Brand&lt;/a&gt;
+  &lt;nav class="zeph-header-nav"&gt;
+    &lt;a href="#"&gt;Link 1&lt;/a&gt;
+    &lt;a href="#"&gt;Link 2&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+
+      <h2>Header with Search</h2>
+      <div class="example">
+        <header class="zeph-header">
+          <a href="#" class="zeph-header-brand">Brand</a>
+          <nav class="zeph-header-nav">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+          </nav>
+          <div class="zeph-header-search">
+            <input type="text" placeholder="Search...">
+          </div>
+        </header>
+      </div>
+      <pre><code>&lt;header class="zeph-header"&gt;
+  &lt;a href="#" class="zeph-header-brand"&gt;Brand&lt;/a&gt;
+  &lt;nav class="zeph-header-nav"&gt;
+    &lt;a href="#"&gt;Link 1&lt;/a&gt;
+    &lt;a href="#"&gt;Link 2&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;div class="zeph-header-search"&gt;
+    &lt;input type="text" placeholder="Search..."&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+
+      <h2>Sticky Header</h2>
+      <div class="example">
+        <header class="zeph-header sticky-top">
+          <a href="#" class="zeph-header-brand">Sticky Header</a>
+          <nav class="zeph-header-nav">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+          </nav>
+        </header>
+      </div>
+      <pre><code>&lt;header class="zeph-header sticky-top"&gt;
+  &lt;a href="#" class="zeph-header-brand"&gt;Sticky Header&lt;/a&gt;
+  &lt;nav class="zeph-header-nav"&gt;
+    &lt;a href="#"&gt;Link 1&lt;/a&gt;
+    &lt;a href="#"&gt;Link 2&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+
+      <h2>Dark Header</h2>
+      <div class="example">
+        <header class="zeph-header header-dark">
+          <a href="#" class="zeph-header-brand">Dark Header</a>
+          <nav class="zeph-header-nav">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+          </nav>
+        </header>
+      </div>
+      <pre><code>&lt;header class="zeph-header header-dark"&gt;
+  &lt;a href="#" class="zeph-header-brand"&gt;Dark Header&lt;/a&gt;
+  &lt;nav class="zeph-header-nav"&gt;
+    &lt;a href="#"&gt;Link 1&lt;/a&gt;
+    &lt;a href="#"&gt;Link 2&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+    </section>
+  </main>
+
+  <footer class="zeph-footer">
+    <p>&copy; 2024 ZephCode CSS. All rights reserved.</p>
+  </footer>
+</body>
+</html>

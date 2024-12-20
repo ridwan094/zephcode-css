@@ -1,75 +1,206 @@
 .dark-theme {
-    --zeph-bg: #121212;
-    --zeph-body-bg: var(--zeph-bg);
-    --zeph-body-text: #e0e0e0;
-    --zeph-border-color: #2a2a2a;
-  
-    // Brand colors bisa versi light agar kontras dengan background gelap
-    --zeph-primary: #{zeph-color('primary','light')};
-    --zeph-secondary: #{zeph-color('secondary','light')};
-    --zeph-success: #{zeph-color('success','light')};
-    --zeph-danger: #{zeph-color('danger','light')};
-    --zeph-warning: #{zeph-color('warning','light')};
-    --zeph-info: #{zeph-color('info','light')};
-  
-    // Grays terbalik agar lebih terang di dark mode
-    --zeph-gray-100: #2a2a2a;
-    --zeph-gray-200: #343a40;
-    --zeph-gray-300: #495057;
-    --zeph-gray-400: #6c757d;
-    --zeph-gray-500: #adb5bd;
-    --zeph-gray-600: #ced4da;
-    --zeph-gray-700: #dee2e6;
-    --zeph-gray-800: #e9ecef;
-    --zeph-gray-900: #f8f9fa;
-  
-    // Typography & Link
-    --zeph-heading-color: #ffffff; // Heading lebih terang
-    --zeph-link-color: var(--zeph-primary);
-    --zeph-link-hover-color: #{zeph-color('primary','dark')}; 
-    // Mungkin 'dark' di primary dark ini masih kontras, silakan adjust sesuai keinginan
-    --zeph-text-muted: var(--zeph-gray-500); // muted text di dark mode jadi abu-abu terang
-  
-    // Cards
-    --zeph-card-bg: #1e1e1e;
-    --zeph-card-border: #2a2a2a;
-    --zeph-card-text: var(--zeph-body-text);
-  
-    // Buttons: ubah sedikit agar hover/active tetap kelihatan jelas
-    --zeph-button-bg: var(--zeph-primary);
-    --zeph-button-text: #fff;
-    --zeph-button-border: var(--zeph-primary);
-    --zeph-button-hover-bg: #{zeph-color('primary','base')}; // di dark mode, hover bisa balik ke base
-    --zeph-button-hover-border: #{zeph-color('primary','base')};
-  
-    // Inputs dan form controls
-    --zeph-input-bg: #1e1e1e;
-    --zeph-input-text: #f1f1f1;
-    --zeph-input-border: #3a3a3a;
-    --zeph-input-placeholder: var(--zeph-gray-500);
-    --zeph-input-focus-border: var(--zeph-primary);
-    --zeph-input-focus-shadow: rgba(255,255,255,0.25);
-  
-    // Navbars, headers, footers
-    --zeph-navbar-bg: #1e1e1e;
-    --zeph-navbar-text: #ffffff;
-    --zeph-footer-bg: #1e1e1e;
-    --zeph-footer-text: #f1f1f1;
-  
-    // Shadows & transitions (shadows lebih subtle di dark)
-    --zeph-shadow-sm: 0 1px 2px rgba(255,255,255,0.05);
-    --zeph-shadow-md: 0 4px 6px rgba(255,255,255,0.1);
-    --zeph-transition-base: all 0.3s ease-in-out;
-  
-    // State colors: info, success, warning, danger
-    // Bisa sedikit lebih terang agar terlihat
-    --zeph-state-info-bg: #{zeph-color('info','base')};
-    --zeph-state-success-bg: #{zeph-color('success','base')};
-    --zeph-state-warning-bg: #{zeph-color('warning','base')};
-    --zeph-state-danger-bg: #{zeph-color('danger','base')};
-  
-    // Scrollbar
-    --zeph-scrollbar-bg: #2a2a2a;
-    --zeph-scrollbar-thumb: #4a4a4a;
+  --zeph-bg: #121212;
+  --zeph-body-bg: var(--zeph-bg);
+  --zeph-body-text: #e0e0e0;
+  --zeph-border-color: #2a2a2a;
+
+  // Warna utama
+  --zeph-primary: #{zeph-color('primary', 'light')};
+  --zeph-secondary: #{zeph-color('secondary', 'light')};
+  --zeph-success: #{zeph-color('success', 'light')};
+  --zeph-danger: #{zeph-color('danger', 'light')};
+  --zeph-warning: #{zeph-color('warning', 'light')};
+  --zeph-info: #{zeph-color('info', 'light')};
+
+  // Grays untuk mode gelap
+  --zeph-gray-100: #2a2a2a;
+  --zeph-gray-200: #343a40;
+  --zeph-gray-300: #495057;
+  --zeph-gray-400: #6c757d;
+  --zeph-gray-500: #adb5bd;
+  --zeph-gray-600: #ced4da;
+  --zeph-gray-700: #dee2e6;
+  --zeph-gray-800: #e9ecef;
+  --zeph-gray-900: #f8f9fa;
+
+  // Typography
+  --zeph-heading-color: #ffffff;
+  --zeph-link-color: var(--zeph-primary);
+  --zeph-link-hover-color: #{zeph-color('primary', 'base')};
+  --zeph-text-muted: var(--zeph-gray-500);
+
+  // Cards
+  --zeph-card-bg: var(--zeph-gray-100);
+  --zeph-card-border: var(--zeph-border-color);
+  --zeph-card-text: var(--zeph-body-text);
+
+  // Buttons
+  --zeph-button-bg: var(--zeph-primary);
+  --zeph-button-text: #fff;
+  --zeph-button-border: var(--zeph-primary);
+  --zeph-button-hover-bg: #{zeph-color('primary', 'base')};
+  --zeph-button-hover-border: #{zeph-color('primary', 'base')};
+  --zeph-button-disabled-bg: var(--zeph-gray-300);
+  --zeph-button-disabled-text: var(--zeph-gray-600);
+
+  // Inputs
+  --zeph-input-bg: var(--zeph-card-bg);
+  --zeph-input-text: var(--zeph-body-text);
+  --zeph-input-border: var(--zeph-border-color);
+  --zeph-input-placeholder: var(--zeph-gray-400);
+  --zeph-input-focus-border: var(--zeph-primary);
+  --zeph-input-focus-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+
+  // Navbar & Footer
+  --zeph-navbar-bg: var(--zeph-gray-100);
+  --zeph-navbar-text: var(--zeph-body-text);
+  --zeph-footer-bg: var(--zeph-card-bg);
+  --zeph-footer-text: var(--zeph-body-text);
+
+  // Shadows & Transitions
+  --zeph-shadow-sm: 0 1px 2px rgba(255, 255, 255, 0.05);
+  --zeph-shadow-md: 0 4px 6px rgba(255, 255, 255, 0.1);
+  --zeph-transition-base: all 0.3s ease;
+
+  // State Colors
+  --zeph-state-info-bg: #{zeph-color('info', 'base')};
+  --zeph-state-success-bg: #{zeph-color('success', 'base')};
+  --zeph-state-warning-bg: #{zeph-color('warning', 'base')};
+  --zeph-state-danger-bg: #{zeph-color('danger', 'base')};
+
+  // Scrollbar
+  --zeph-scrollbar-bg: var(--zeph-gray-200);
+  --zeph-scrollbar-thumb: var(--zeph-gray-400);
+  --zeph-scrollbar-thumb-hover: var(--zeph-gray-300);
+
+  // Utility Classes
+  .dark-link {
+      color: var(--zeph-link-color);
+      &:hover {
+          color: var(--zeph-link-hover-color);
+      }
   }
-  
+
+  .dark-card {
+      background-color: var(--zeph-card-bg);
+      color: var(--zeph-card-text);
+      border: 1px solid var(--zeph-card-border);
+  }
+
+  .dark-btn {
+      background-color: var(--zeph-button-bg);
+      color: var(--zeph-button-text);
+      border: 1px solid var(--zeph-button-border);
+      &:hover {
+          background-color: var(--zeph-button-hover-bg);
+          border-color: var(--zeph-button-hover-border);
+      }
+      &:disabled {
+          background-color: var(--zeph-button-disabled-bg);
+          color: var(--zeph-button-disabled-text);
+      }
+  }
+}
+.dark-theme {
+  --zeph-bg: #121212;
+  --zeph-body-bg: var(--zeph-bg);
+  --zeph-body-text: #e0e0e0;
+  --zeph-border-color: #2a2a2a;
+
+  // Warna utama
+  --zeph-primary: #{zeph-color('primary', 'light')};
+  --zeph-secondary: #{zeph-color('secondary', 'light')};
+  --zeph-success: #{zeph-color('success', 'light')};
+  --zeph-danger: #{zeph-color('danger', 'light')};
+  --zeph-warning: #{zeph-color('warning', 'light')};
+  --zeph-info: #{zeph-color('info', 'light')};
+
+  // Grays untuk mode gelap
+  --zeph-gray-100: #2a2a2a;
+  --zeph-gray-200: #343a40;
+  --zeph-gray-300: #495057;
+  --zeph-gray-400: #6c757d;
+  --zeph-gray-500: #adb5bd;
+  --zeph-gray-600: #ced4da;
+  --zeph-gray-700: #dee2e6;
+  --zeph-gray-800: #e9ecef;
+  --zeph-gray-900: #f8f9fa;
+
+  // Typography
+  --zeph-heading-color: #ffffff;
+  --zeph-link-color: var(--zeph-primary);
+  --zeph-link-hover-color: #{zeph-color('primary', 'base')};
+  --zeph-text-muted: var(--zeph-gray-500);
+
+  // Cards
+  --zeph-card-bg: var(--zeph-gray-100);
+  --zeph-card-border: var(--zeph-border-color);
+  --zeph-card-text: var(--zeph-body-text);
+
+  // Buttons
+  --zeph-button-bg: var(--zeph-primary);
+  --zeph-button-text: #fff;
+  --zeph-button-border: var(--zeph-primary);
+  --zeph-button-hover-bg: #{zeph-color('primary', 'base')};
+  --zeph-button-hover-border: #{zeph-color('primary', 'base')};
+  --zeph-button-disabled-bg: var(--zeph-gray-300);
+  --zeph-button-disabled-text: var(--zeph-gray-600);
+
+  // Inputs
+  --zeph-input-bg: var(--zeph-card-bg);
+  --zeph-input-text: var(--zeph-body-text);
+  --zeph-input-border: var(--zeph-border-color);
+  --zeph-input-placeholder: var(--zeph-gray-400);
+  --zeph-input-focus-border: var(--zeph-primary);
+  --zeph-input-focus-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+
+  // Navbar & Footer
+  --zeph-navbar-bg: var(--zeph-gray-100);
+  --zeph-navbar-text: var(--zeph-body-text);
+  --zeph-footer-bg: var(--zeph-card-bg);
+  --zeph-footer-text: var(--zeph-body-text);
+
+  // Shadows & Transitions
+  --zeph-shadow-sm: 0 1px 2px rgba(255, 255, 255, 0.05);
+  --zeph-shadow-md: 0 4px 6px rgba(255, 255, 255, 0.1);
+  --zeph-transition-base: all 0.3s ease;
+
+  // State Colors
+  --zeph-state-info-bg: #{zeph-color('info', 'base')};
+  --zeph-state-success-bg: #{zeph-color('success', 'base')};
+  --zeph-state-warning-bg: #{zeph-color('warning', 'base')};
+  --zeph-state-danger-bg: #{zeph-color('danger', 'base')};
+
+  // Scrollbar
+  --zeph-scrollbar-bg: var(--zeph-gray-200);
+  --zeph-scrollbar-thumb: var(--zeph-gray-400);
+  --zeph-scrollbar-thumb-hover: var(--zeph-gray-300);
+
+  // Utility Classes
+  .dark-link {
+      color: var(--zeph-link-color);
+      &:hover {
+          color: var(--zeph-link-hover-color);
+      }
+  }
+
+  .dark-card {
+      background-color: var(--zeph-card-bg);
+      color: var(--zeph-card-text);
+      border: 1px solid var(--zeph-card-border);
+  }
+
+  .dark-btn {
+      background-color: var(--zeph-button-bg);
+      color: var(--zeph-button-text);
+      border: 1px solid var(--zeph-button-border);
+      &:hover {
+          background-color: var(--zeph-button-hover-bg);
+          border-color: var(--zeph-button-hover-border);
+      }
+      &:disabled {
+          background-color: var(--zeph-button-disabled-bg);
+          color: var(--zeph-button-disabled-text);
+      }
+  }
+}

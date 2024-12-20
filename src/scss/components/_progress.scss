@@ -5,6 +5,7 @@
     font-size: 0.75rem;
     background-color: zeph-color('gray', '200');
     border-radius: zeph-radius('sm');
+    position: relative;
 
     &-bar {
         display: flex;
@@ -15,18 +16,18 @@
         text-align: center;
         white-space: nowrap;
         background-color: zeph-color('primary');
-        transition: width 0.6s ease;
+        transition: all 0.6s ease;
 
         // Variants
         &-striped {
             background-image: linear-gradient(45deg,
-                    rgba(255, 255, 255, 0.15) 25%,
-                    transparent 25%,
-                    transparent 50%,
-                    rgba(255, 255, 255, 0.15) 50%,
-                    rgba(255, 255, 255, 0.15) 75%,
-                    transparent 75%,
-                    transparent);
+                rgba(255, 255, 255, 0.15) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.15) 50%,
+                rgba(255, 255, 255, 0.15) 75%,
+                transparent 75%,
+                transparent);
             background-size: 1rem 1rem;
         }
 
@@ -50,6 +51,11 @@
         &-danger {
             background-color: zeph-color('danger');
         }
+
+        // Gradient Background
+        &-gradient {
+            background: linear-gradient(to right, zeph-color('primary'), zeph-color('info'));
+        }
     }
 
     // Sizes
@@ -60,6 +66,19 @@
     &-lg {
         height: 1.5rem;
         font-size: 1rem;
+    }
+
+    // Multiple Bars
+    &-multi {
+        position: relative;
+        display: flex;
+
+        .#{$prefix}progress-bar {
+            flex-grow: 1;
+            &:not(:last-child) {
+                margin-right: 0.25rem;
+            }
+        }
     }
 
     // Labels
@@ -75,9 +94,39 @@
         &-percentage {
             color: zeph-color('gray', '600');
         }
+
+        &-icon {
+            margin-left: 0.5rem;
+            font-size: 1rem;
+        }
+    }
+
+    // Steps
+    &-steps {
+        position: absolute;
+        top: -0.5rem;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+
+        .#{$prefix}progress-step {
+            position: relative;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: zeph-color('gray', '300');
+            border-radius: 50%;
+            z-index: 2;
+
+            &.completed {
+                background-color: zeph-color('success');
+            }
+        }
     }
 }
 
+// Animations
 @keyframes progress-bar-stripes {
     from {
         background-position: 1rem 0;
@@ -85,5 +134,17 @@
 
     to {
         background-position: 0 0;
+    }
+}
+
+// Responsive Adjustments
+@include zeph-media-down('sm') {
+    .#{$prefix}progress {
+        font-size: 0.65rem;
+        height: 0.75rem;
+
+        &-label {
+            font-size: 0.65rem;
+        }
     }
 }
